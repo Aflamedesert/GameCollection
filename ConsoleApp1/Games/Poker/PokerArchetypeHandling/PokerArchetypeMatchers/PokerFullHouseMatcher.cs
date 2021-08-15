@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
-    class PokerFullHouseMatcher : IPokerArchetypeMatcher
+    public class PokerFullHouseMatcher : IPokerArchetypeMatcher
     {
         const int FirstIndex = 0;
         const int SecondIndex = 1;

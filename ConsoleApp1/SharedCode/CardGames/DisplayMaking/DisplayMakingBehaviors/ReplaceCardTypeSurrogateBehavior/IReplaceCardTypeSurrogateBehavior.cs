@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.ReplaceCardTypeSurrogateBehavior
 {
-    interface IReplaceCardTypeSurrogateBehavior
+    public interface IReplaceCardTypeSurrogateBehavior
     {
         string ReplaceCardTypeSurrogate(string passedLine, string passedCardType, char passedFlag);
     }

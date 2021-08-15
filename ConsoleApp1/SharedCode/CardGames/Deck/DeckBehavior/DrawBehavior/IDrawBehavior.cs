@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckBehavior.DrawBehavior
 {
-    interface IDrawBehavior<T>
+    public interface IDrawBehavior<T>
     {
         T Draw();
         List<T> Draw(int passedDrawNumber);

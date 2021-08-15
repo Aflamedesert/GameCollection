@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCards
 {
-    class PokerNumberCard : NumberCard, IPokerCard
+    public class PokerNumberCard : NumberCard, IPokerCard
     {
         public PokerNumberCard(int passedCardNumber, string passedSuit, string[] passedCardDisplay) : base(passedCardNumber, passedSuit, passedCardDisplay)
         {

@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandPatternChecking;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
-    class PokerStraightMatcher : IPokerArchetypeMatcher
+    public class PokerStraightMatcher : IPokerArchetypeMatcher
     {
         IPokerHandPatternChecker setChecker;
 

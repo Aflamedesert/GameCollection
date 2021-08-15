@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCards
 {
-    class PokerFaceCard : FaceCard, IPokerCard
+    public class PokerFaceCard : FaceCard, IPokerCard
     {
         int cardValue;
 

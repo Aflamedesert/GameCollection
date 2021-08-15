@@ -8,7 +8,7 @@ using GameCollection.Menu;
 
 namespace GameCollection.Administration
 {
-    interface IGameFactory
+    public interface IGameFactory
     {
         string[] getOptionsList();
         IGameInterface SelectGame(int input);

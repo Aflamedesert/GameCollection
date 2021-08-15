@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.BackupValuationCheckingBehavior
 {
-    interface IBackupValuationChecker
+    public interface IBackupValuationChecker
     {
         bool hasBackupValuation();
     }

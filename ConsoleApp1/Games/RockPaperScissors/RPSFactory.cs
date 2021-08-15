@@ -8,7 +8,7 @@ using GameCollection.Menu;
 
 namespace GameCollection.Games.RockPaperScissors
 {
-    class RPSFactory : IGameFactory
+    public class RPSFactory : IGameFactory
     {
         string[] optionsList;
 

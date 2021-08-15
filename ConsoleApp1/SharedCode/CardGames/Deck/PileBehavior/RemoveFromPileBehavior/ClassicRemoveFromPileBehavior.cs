@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.PileBehavior.RemoveFromPileBehavior
 {
-    class ClassicRemoveFromPileBehavior<T> : IRemoveFromPileBehavior<T>
+    public class ClassicRemoveFromPileBehavior<T> : IRemoveFromPileBehavior<T>
     {
         List<T> pileList;
 

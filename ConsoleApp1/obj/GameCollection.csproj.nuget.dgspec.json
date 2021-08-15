@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Game Collection\\ConsoleApp1\\GameCollection.csproj": {}
+    "C:\\Projects\\Game Collection\\GameCollection\\ConsoleApp1\\GameCollection.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Game Collection\\ConsoleApp1\\GameCollection.csproj": {
+    "C:\\Projects\\Game Collection\\GameCollection\\ConsoleApp1\\GameCollection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Game Collection\\ConsoleApp1\\GameCollection.csproj",
+        "projectUniqueName": "C:\\Projects\\Game Collection\\GameCollection\\ConsoleApp1\\GameCollection.csproj",
         "projectName": "GameCollection",
-        "projectPath": "C:\\Projects\\Game Collection\\ConsoleApp1\\GameCollection.csproj",
+        "projectPath": "C:\\Projects\\Game Collection\\GameCollection\\ConsoleApp1\\GameCollection.csproj",
         "packagesPath": "C:\\Users\\mcrow\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Game Collection\\ConsoleApp1\\obj\\",
+        "outputPath": "C:\\Projects\\Game Collection\\GameCollection\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mcrow\\AppData\\Roaming\\NuGet\\NuGet.Config",

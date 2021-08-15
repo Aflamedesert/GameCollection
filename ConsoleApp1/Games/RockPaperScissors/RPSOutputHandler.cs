@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.RockPaperScissors
 {
-    class RPSOutputHandler
+    public class RPSOutputHandler
     {
         public void ChooseOption()
         {

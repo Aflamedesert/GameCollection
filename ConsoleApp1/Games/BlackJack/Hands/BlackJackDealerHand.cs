@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.BlackJack.Hands
 {
-    class BlackJackDealerHand : AbstractBlackJackHand
+    public class BlackJackDealerHand : AbstractBlackJackHand
     {
         bool fullHandShown;
 

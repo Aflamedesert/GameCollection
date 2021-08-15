@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandSorting;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
-    class StraightChecker : IPokerHandPatternChecker
+    public class StraightChecker : IPokerHandPatternChecker
     {
         IPokerHandSorter handSorter;
 

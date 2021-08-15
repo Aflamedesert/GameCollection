@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games
 {
-    interface IGameInterface
+    public interface IGameInterface
     {
         void Play();
     }

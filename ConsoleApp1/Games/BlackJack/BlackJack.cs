@@ -11,7 +11,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.BlackJack
 {
-    class BlackJack : IGameInterface
+    public class BlackJack : IGameInterface
     {
         const int BustLimit = 21;
 

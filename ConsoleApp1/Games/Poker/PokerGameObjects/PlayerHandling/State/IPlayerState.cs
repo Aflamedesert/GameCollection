@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.State
 {
-    interface IPlayerState
+    public interface IPlayerState
     {
         void Draw();
         void Draw(int passedNumberOfCards);

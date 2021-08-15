@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
-    class PokerThreeOfAKindMatcher : IPokerArchetypeMatcher
+    public class PokerThreeOfAKindMatcher : IPokerArchetypeMatcher
     {
         const int FirstIndex = 0;
 

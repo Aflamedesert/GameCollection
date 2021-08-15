@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckBehavior.DiscardBehavior
 {
-    class ClassicDiscardBehavior<T> : IDiscardBehavior<T>
+    public class ClassicDiscardBehavior<T> : IDiscardBehavior<T>
     {
         IPileOfCards<T> discardPile;
 

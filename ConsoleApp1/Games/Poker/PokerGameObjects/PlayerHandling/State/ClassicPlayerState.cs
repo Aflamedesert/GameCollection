@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.PlayerB
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.State
 {
-    class ClassicPlayerState : IPlayerState
+    public class ClassicPlayerState : IPlayerState
     {
         IDeck<IPokerCard> deck;
 

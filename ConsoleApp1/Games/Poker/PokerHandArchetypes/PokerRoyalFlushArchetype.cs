@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    class PokerRoyalFlushArchetype : IPokerHandArchetype
+    public class PokerRoyalFlushArchetype : IPokerHandArchetype
     {
         const int FirstIndex = 0;
 

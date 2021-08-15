@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    class PokerStraightFlushArchetype : IPokerHandArchetype
+    public class PokerStraightFlushArchetype : IPokerHandArchetype
     {
         const int FirstIndex = 0;
 

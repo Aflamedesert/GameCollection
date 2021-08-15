@@ -10,7 +10,7 @@ using GameCollection.SharedCode.CardGames.Deck.DeckMakingBehavior.InstanciateDec
 
 namespace GameCollection.SharedCode.CardGames.Deck
 {
-    class ClassicDeckMaker : IDeckMaker<ICard>
+    public class ClassicDeckMaker : IDeckMaker<ICard>
     {
         ISetupDeckBehavior setupDeckBehavior;
 

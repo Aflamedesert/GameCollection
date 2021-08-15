@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState.ValuationProcessState
 {
-    class ClassicValuationProcessState : IValuationProcessState
+    public class ClassicValuationProcessState : IValuationProcessState
     {
         List<IPokerHandValueIterator> valuationProcess;
 

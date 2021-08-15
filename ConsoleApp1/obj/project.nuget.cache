@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L/VsxDG3ew4y1Lfbhd5q66mkAdwKOCT1dS6wc1hWNrTwfsSJ0sBIve4Az6rwcO9HglRtPbTtdg6rjLYq1lTdJA==",
+  "dgSpecHash": "0IMvOB7djx7ffaMdw9HAMnrJbELFOo0NBsM9WS24t4qfObyfX7kobZmH/A/Y057sc5zqH5yK+mUF4O++n0awRg==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Game Collection\\ConsoleApp1\\GameCollection.csproj",
+  "projectFilePath": "C:\\Projects\\Game Collection\\GameCollection\\ConsoleApp1\\GameCollection.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

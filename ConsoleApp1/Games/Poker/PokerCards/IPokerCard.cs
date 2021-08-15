@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCards
 {
-    interface IPokerCard : ICard
+    public interface IPokerCard : ICard
     {
         int getIntValue();
     }

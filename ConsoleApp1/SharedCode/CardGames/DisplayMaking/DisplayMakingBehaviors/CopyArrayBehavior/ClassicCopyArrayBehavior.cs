@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.CopyArrayBehavior
 {
-    class ClassicCopyArrayBehavior : ICopyArrayBehavior
+    public class ClassicCopyArrayBehavior : ICopyArrayBehavior
     {
         public T[] CopyArray<T>(T[] passedArrayToCopy)
         {

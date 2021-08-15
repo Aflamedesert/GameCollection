@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.IncrementingValuationBehavior
 {
-    interface IValuationProcessIncrementor
+    public interface IValuationProcessIncrementor
     {
         void Increment();
     }

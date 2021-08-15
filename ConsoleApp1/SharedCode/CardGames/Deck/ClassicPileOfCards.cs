@@ -9,7 +9,7 @@ using GameCollection.SharedCode.CardGames.Deck.PileBehavior.PileHasCardsBehavior
 
 namespace GameCollection.SharedCode.CardGames.Deck
 {
-    class ClassicPileOfCards<T> : IPileOfCards<T>
+    public class ClassicPileOfCards<T> : IPileOfCards<T>
     {
         List<T> CardPile;
 

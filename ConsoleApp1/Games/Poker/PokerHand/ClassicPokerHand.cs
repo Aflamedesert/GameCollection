@@ -13,7 +13,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHand
 {
-    class ClassicPokerHand : IPokerHand
+    public class ClassicPokerHand : IPokerHand
     {
         IPokerHandSorter handSorter;
 

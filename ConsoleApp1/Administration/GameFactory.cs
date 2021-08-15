@@ -9,7 +9,7 @@ using GameCollection.Menu;
 
 namespace GameCollection.Administration
 {
-    class GameFactory : IGameNodeFactory
+    public class GameFactory : IGameNodeFactory
     {
         string[] gamesList;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.GameBetter
 {
-    class ClassicGameBetter : IGameBetter
+    public class ClassicGameBetter : IGameBetter
     {
         int chips;
 

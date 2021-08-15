@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandValueIterators;
 using GameCollection.Games.Poker.PokerHandSorting;
 using GameCollection.Games.Poker.PokerHandPatternChecking;
+using GameCollection.Games.Poker.PokerArchetypeHandling;
 
 namespace GameCollection.Games.Poker.PokerFactories
 {
-    class ClassicPokerFactory
+    public class ClassicPokerFactory
     {
+        public PokerPatternCheckingPackage GetPatternCheckingPackageInstance()
+        {
+            SetChecker setChecker = GetSetCheckerInstance();
+
+            StraightChecker straightChecker = GetStraightCheckerInstance();
+
+            FlushChecker flushChecker = GetFlushCheckerInstance();
+
+            return new PokerPatternCheckingPackage(setChecker, straightChecker, flushChecker);
+        }
+
         public HighCardValueIterator GetHighCardIteratorInstance()
         {
             return new HighCardValueIterator();

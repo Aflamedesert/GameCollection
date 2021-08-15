@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandValueIterators
 {
-    class HighKindValueIterator : AbstractHighKindValueIterator
+    public class HighKindValueIterator : AbstractHighKindValueIterator
     {
         const int FirstIndex = 0;
 

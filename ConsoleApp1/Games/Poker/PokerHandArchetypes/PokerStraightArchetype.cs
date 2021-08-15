@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    class PokerStraightArchetype : IPokerHandArchetype
+    public class PokerStraightArchetype : IPokerHandArchetype
     {
         int? highCardValue;
 

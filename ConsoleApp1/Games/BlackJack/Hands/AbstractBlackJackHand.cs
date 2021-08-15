@@ -10,7 +10,7 @@ using GameCollection.SharedCode.CardGames.Hand.HandBehavior.HandCheckingBehavior
 
 namespace GameCollection.Games.BlackJack.Hands
 {
-    abstract class AbstractBlackJackHand : IBlackJackHand
+    public abstract class AbstractBlackJackHand : IBlackJackHand
     {
         ClassicAddingHandBehavior<ICard> handAdder;
 

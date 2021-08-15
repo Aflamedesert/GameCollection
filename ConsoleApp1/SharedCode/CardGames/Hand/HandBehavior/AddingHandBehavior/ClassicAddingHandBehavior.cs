@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Hand.HandBehavior.AddingHandBehavior
 {
-    class ClassicAddingHandBehavior<T> : IAddingHandBehavior<T>
+    public class ClassicAddingHandBehavior<T> : IAddingHandBehavior<T>
     {
         List<T> hand;
         

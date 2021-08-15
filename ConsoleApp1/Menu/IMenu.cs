@@ -8,7 +8,7 @@ using GameCollection.Administration;
 
 namespace GameCollection.Menu
 {
-    interface IMenu
+    public interface IMenu
     {
         void setOptions(IOptions passedOptions);
         IGameInterface Run();

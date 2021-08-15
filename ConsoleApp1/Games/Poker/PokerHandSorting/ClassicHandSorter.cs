@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandSorting
 {
-    class ClassicHandSorter : IPokerHandSorter
+    public class ClassicHandSorter : IPokerHandSorter
     {
         AbstractHighCardValueIterator highCardValueIterator;
 
@@ -54,18 +54,18 @@ namespace GameCollection.Games.Poker.PokerHandSorting
 
             do
             {
-                currentBestCard = GetBestCard(passedCards);
+                currentBestCard = GetBestCard(cardList);
 
                 if (currentBestCard != null)
                 {
-                    cardList.Add(currentBestCard);
+                    sortedCardList.Add(currentBestCard);
 
                     cardList = RemoveCardFromList(cardList, currentBestCard);
                 }
 
             } while (currentBestCard != null);
 
-            return cardList;
+            return sortedCardList;
         }
 
         private List<IPokerCard> RemoveCardsFromList(List<IPokerCard> passedCards, List<IPokerCard> passedCardsToRemove)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking
 {
-    interface IDisplayMaker
+    public interface IDisplayMaker
     {
         string[] GetDisplay(string passedType, string passedSuit);
     }

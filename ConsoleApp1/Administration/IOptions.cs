@@ -8,7 +8,7 @@ using GameCollection.Menu;
 
 namespace GameCollection.Administration
 {
-    interface IOptions
+    public interface IOptions
     {
         int getListSize();
         string getListOfOptions();

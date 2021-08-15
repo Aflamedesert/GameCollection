@@ -10,7 +10,7 @@ using GameCollection.SharedCode.CardGames.Deck.DeckBehavior.CardBackDisplayBehav
 
 namespace GameCollection.SharedCode.CardGames.Deck
 {
-    class ClassicDeckOfCards<T> : IDeck<T>
+    public class ClassicDeckOfCards<T> : IDeck<T>
     {
         IShuffleBehavior shuffleBehavior;
 

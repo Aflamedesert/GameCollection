@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandSorting
 {
-    interface IPokerHandSorter
+    public interface IPokerHandSorter
     {
         List<IPokerCard> SortHand(List<IPokerCard> passedCards);
     }

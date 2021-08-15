@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckBehavior.CardBackDisplayBehavior
 {
-    class ClassicCardBackDisplayBehavior : ICardBackDisplayBehavior
+    public class ClassicCardBackDisplayBehavior : ICardBackDisplayBehavior
     {
         string[] cardBackDisplay;
 

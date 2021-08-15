@@ -9,7 +9,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.IncrementingValuationBehavior
 {
-    class ClassicValuationProcessIncrementor : IValuationProcessIncrementor
+    public class ClassicValuationProcessIncrementor : IValuationProcessIncrementor
     {
         IValuationProcessState valuationState;
 

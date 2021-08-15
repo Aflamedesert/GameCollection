@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckBehavior.ShuffleBehavior
 {
-    interface IShuffleBehavior
+    public interface IShuffleBehavior
     {
         List<T> Shuffle<T>(List<T> passedCards);
     }

@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
-    class FlushChecker : IPokerHandPatternChecker
+    public class FlushChecker : IPokerHandPatternChecker
     {
         const int FirstIndex = 0;
 

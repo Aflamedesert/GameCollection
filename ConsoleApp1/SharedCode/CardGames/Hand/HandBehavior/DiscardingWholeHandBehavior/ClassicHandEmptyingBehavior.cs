@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Hand.HandBehavior.DiscardingWholeHandBehavior
 {
-    class ClassicHandEmptyingBehavior<T> : IHandEmptyingBehavior<T>
+    public class ClassicHandEmptyingBehavior<T> : IHandEmptyingBehavior<T>
     {
         List<T> hand;
 

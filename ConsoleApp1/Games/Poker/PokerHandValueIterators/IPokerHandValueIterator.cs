@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandValueIterators
 {
-    interface IPokerHandValueIterator
+    public interface IPokerHandValueIterator
     {
         List<IPokerCard> GetHighestPartOfHand(List<IPokerCard> passedCards);
     }

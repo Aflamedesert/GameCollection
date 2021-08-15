@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.SharedCode.CardGames.Deck
 {
-    interface IDeck<T>
+    public interface IDeck<T>
     {
         T Draw();
         List<T> Draw(int passedDrawNumber);

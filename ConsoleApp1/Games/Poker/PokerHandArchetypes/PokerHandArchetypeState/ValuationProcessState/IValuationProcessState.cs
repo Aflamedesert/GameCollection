@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState.ValuationProcessState
 {
-    interface IValuationProcessState
+    public interface IValuationProcessState
     {
         IPokerHandValueIterator getCurrentValuationProcess();
         int getValuationProcessCount();

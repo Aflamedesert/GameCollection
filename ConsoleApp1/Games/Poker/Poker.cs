@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker
 {
-    class Poker : IGameInterface
+    public class Poker : IGameInterface
     {
         IDeck<IPokerCard> deck;
 

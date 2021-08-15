@@ -8,7 +8,7 @@ using GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.C
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.ReplaceCardTypeSurrogateBehavior
 {
-    class ClassicReplaceCardTypeSurrogateBehavior : IReplaceCardTypeSurrogateBehavior
+    public class ClassicReplaceCardTypeSurrogateBehavior : IReplaceCardTypeSurrogateBehavior
     {
         ICardTypeCheckingBehavior cardTypeCheckingBehavior;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.PileBehavior.PileHasCardsBehavior
 {
-    interface IPileHasCardsBehavior
+    public interface IPileHasCardsBehavior
     {
         bool HasCards();
     }

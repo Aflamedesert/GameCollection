@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerCardValueSetting;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
-    class SetChecker : IPokerHandPatternChecker
+    public class SetChecker : IPokerHandPatternChecker
     {
         const int FirstIndex = 0;
 

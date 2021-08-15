@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling
 {
-    class PokerThreeOfAKindArchetypeFactory : IPokerArchetypeFactory
+    public class PokerThreeOfAKindArchetypeFactory : IPokerArchetypeFactory
     {
         AbstractHighKindValueIterator highKindIterator;
 

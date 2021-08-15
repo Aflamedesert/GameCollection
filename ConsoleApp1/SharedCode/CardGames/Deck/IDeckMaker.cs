@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.SharedCode.CardGames.Deck
 {
-    interface IDeckMaker<T>
+    public interface IDeckMaker<T>
     {
         List<T> GetDeck();
     }

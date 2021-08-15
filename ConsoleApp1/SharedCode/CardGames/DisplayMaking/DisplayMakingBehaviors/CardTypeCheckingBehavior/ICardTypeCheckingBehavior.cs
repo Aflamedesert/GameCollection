@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.CardTypeCheckingBehavior
 {
-    interface ICardTypeCheckingBehavior
+    public interface ICardTypeCheckingBehavior
     {
         bool isNumberCard(string passedCardType);
         bool isFaceCard(string passedCardType);

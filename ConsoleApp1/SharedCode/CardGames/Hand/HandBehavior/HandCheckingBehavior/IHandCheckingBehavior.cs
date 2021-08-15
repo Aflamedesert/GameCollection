@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Hand.HandBehavior.HandCheckingBehavior
 {
-    interface IHandCheckingBehavior
+    public interface IHandCheckingBehavior
     {
         public bool ContainsCard(string passedType = null, string passedSuit = null);
         public bool isEmpty();

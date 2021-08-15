@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PlayingEntities;
 
 namespace GameCollection.Games.Poker.PokerGameObjects
 {
-    interface IPokerGameObject
+    public interface IPokerGameObject
     {
         void Play();
         void LinkPlayerToStateObject(List<IPlayingEntity> passedPlayers);

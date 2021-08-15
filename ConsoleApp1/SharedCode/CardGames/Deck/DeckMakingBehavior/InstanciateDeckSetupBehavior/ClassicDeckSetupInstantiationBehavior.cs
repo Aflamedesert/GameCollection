@@ -8,7 +8,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckMakingBehavior.InstanciateDeckSetupBehavior
 {
-    class ClassicDeckSetupInstantiationBehavior : IDeckSetupInstantiationBehavior<ICard>
+    public class ClassicDeckSetupInstantiationBehavior : IDeckSetupInstantiationBehavior<ICard>
     {
         IDisplayMaker displayMaker;
 

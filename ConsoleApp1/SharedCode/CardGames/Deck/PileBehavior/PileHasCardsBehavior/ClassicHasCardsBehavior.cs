@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.PileBehavior.PileHasCardsBehavior
 {
-    class ClassicHasCardsBehavior<T> : IPileHasCardsBehavior
+    public class ClassicHasCardsBehavior<T> : IPileHasCardsBehavior
     {
         List<T> pileList;
 

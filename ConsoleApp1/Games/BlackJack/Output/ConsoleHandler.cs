@@ -8,7 +8,7 @@ using GameCollection.Games.BlackJack.Hands;
 
 namespace GameCollection.Games.BlackJack.Output
 {
-    class ConsoleHandler
+    public class ConsoleHandler
     {
         InputHandler inputHandler;
 

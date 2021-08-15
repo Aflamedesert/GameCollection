@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection
 {
-    class Constants
+    public static class Constants
     {
         public const int FirstIndex = 0;
         public const int TopOfPile = 0;

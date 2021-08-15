@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.RockPaperScissors
 {
-    class RPSInputHandler
+    public class RPSInputHandler
     {
         public string getInputLine()
         {

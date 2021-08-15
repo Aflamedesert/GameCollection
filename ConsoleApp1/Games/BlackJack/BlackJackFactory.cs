@@ -10,7 +10,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.BlackJack
 {
-    class BlackJackFactory : IGameFactory
+    public class BlackJackFactory : IGameFactory
     {
         string[] optionsList;
 

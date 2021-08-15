@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.CharReplacementBehavior
 {
-    class ClassicCharReplacementBehavior : ICharReplacementBehavior
+    public class ClassicCharReplacementBehavior : ICharReplacementBehavior
     {
         public string ReplaceMultipleCharacters(string passedLine, string passedReplacement, int passedIndex)
         {

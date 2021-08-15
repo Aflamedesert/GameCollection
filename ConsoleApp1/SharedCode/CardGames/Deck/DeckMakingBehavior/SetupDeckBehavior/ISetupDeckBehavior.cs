@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckMakingBehavior.SetupDeckBehavior
 {
-    interface ISetupDeckBehavior
+    public interface ISetupDeckBehavior
     {
         string[,] SetupDeck();
     }

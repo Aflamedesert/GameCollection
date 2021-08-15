@@ -12,7 +12,7 @@ using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    interface IPokerHandArchetype
+    public interface IPokerHandArchetype
     {
         int? getValuation();
         bool hasBackUpValuation();

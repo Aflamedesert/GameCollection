@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCardValueSetting
 {
-    interface IPokerCardValueSetter
+    public interface IPokerCardValueSetter
     {
         int ConvertToIntValue(ICard passedCard);
     }

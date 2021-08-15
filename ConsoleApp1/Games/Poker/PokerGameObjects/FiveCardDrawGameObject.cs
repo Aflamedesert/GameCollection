@@ -14,7 +14,7 @@ using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.State;
 
 namespace GameCollection.Games.Poker.PokerGameObjects
 {
-    class FiveCardDrawGameObject : IPokerGameObject
+    public class FiveCardDrawGameObject : IPokerGameObject
     {
         List<PlayerPackage> playerObjects;
 

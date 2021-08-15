@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
-    interface IPokerArchetypeMatcher
+    public interface IPokerArchetypeMatcher
     {
         bool isArchetypeMatch(List<IPokerCard> passedCards);
     }

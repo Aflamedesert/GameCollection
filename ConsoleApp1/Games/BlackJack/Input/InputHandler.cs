@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.BlackJack.Input
 {
-    class InputHandler
+    public class InputHandler
     {
         public string GetChoiceInput(int[] passedChoices)
         {

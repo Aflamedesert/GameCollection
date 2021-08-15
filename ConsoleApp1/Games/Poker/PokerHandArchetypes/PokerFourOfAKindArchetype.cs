@@ -12,7 +12,7 @@ using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    class PokerFourOfAKindArchetype : IPokerHandArchetype
+    public class PokerFourOfAKindArchetype : IPokerHandArchetype
     {
         List<IPokerHandValueIterator> valuationProcess;
 

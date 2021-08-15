@@ -7,7 +7,7 @@ using GameCollection.Menu;
 
 namespace GameCollection.Administration
 {
-    interface IGameNodeFactory : IGameFactory
+    public interface IGameNodeFactory : IGameFactory
     {
         void setSelfNode(MenuNodeFascade passedSelfNode);
         void setHighLevelFactory(HighLevelFactory passedHighFactory);

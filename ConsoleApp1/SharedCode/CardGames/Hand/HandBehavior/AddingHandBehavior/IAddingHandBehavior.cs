@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Hand.HandBehavior.AddingHandBehavior
 {
-    interface IAddingHandBehavior<T>
+    public interface IAddingHandBehavior<T>
     {
         void Add(List<T> passedCards);
         void Add(T passedCard);

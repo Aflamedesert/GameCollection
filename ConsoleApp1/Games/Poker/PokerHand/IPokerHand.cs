@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHand
 {
-    interface IPokerHand
+    public interface IPokerHand
     {
 
         public void Add(IPokerCard passedCard);

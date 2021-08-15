@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Card
 {
-    interface ICard
+    public interface ICard
     {
         string getSuit();
         string getType();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.RockPaperScissors
 {
-    class RockPaperScissors : IGameInterface
+    public class RockPaperScissors : IGameInterface
     {
         private const int EndingChoiceIndex = (int)Choices.Scissors;
 

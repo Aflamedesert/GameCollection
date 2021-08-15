@@ -9,7 +9,7 @@ using GameCollection.Games.Poker.PlayingEntities;
 
 namespace GameCollection.Games.Poker.PokerGameObjects
 {
-    struct PlayerPackage
+    public struct PlayerPackage
     {
         public IPlayingEntity playerObject { get; }
 

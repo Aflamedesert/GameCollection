@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandArchetypes;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling
 {
-    interface IPokerArchetypeFactory
+    public interface IPokerArchetypeFactory
     {
         bool isArchetypeMatch(List<IPokerCard> passedCards);
         IPokerHandArchetype getArchetypeInstance(List<IPokerCard> passedCards);

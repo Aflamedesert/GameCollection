@@ -8,7 +8,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.BlackJack.Hands
 {
-    class BlackJackPlayerHand : AbstractBlackJackHand
+    public class BlackJackPlayerHand : AbstractBlackJackHand
     {
         public BlackJackPlayerHand(List<ICard> passedStartingHand = null) : base(passedStartingHand)
         {

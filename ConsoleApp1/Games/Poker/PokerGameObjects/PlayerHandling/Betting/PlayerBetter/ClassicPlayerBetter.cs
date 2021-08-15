@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.GameBet
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.PlayerBetter
 {
-    class ClassicPlayerBetter : IPlayerBetter
+    public class ClassicPlayerBetter : IPlayerBetter
     {
         IGameBetter pot;
 

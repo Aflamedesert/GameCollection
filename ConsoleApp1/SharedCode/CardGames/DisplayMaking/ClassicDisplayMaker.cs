@@ -11,7 +11,7 @@ using GameCollection.SharedCode.CardGames.DisplayMaking.DisplayMakingBehaviors.C
 
 namespace GameCollection.SharedCode.CardGames.DisplayMaking
 {
-    class ClassicDisplayMaker : IDisplayMaker
+    public class ClassicDisplayMaker : IDisplayMaker
     {
         ICardTypeCheckingBehavior cardTypeChecker;
 

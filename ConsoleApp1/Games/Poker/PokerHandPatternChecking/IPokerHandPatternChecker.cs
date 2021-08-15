@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
-    interface IPokerHandPatternChecker
+    public interface IPokerHandPatternChecker
     {
         bool containsPattern(List<IPokerCard> passedCards);
     }

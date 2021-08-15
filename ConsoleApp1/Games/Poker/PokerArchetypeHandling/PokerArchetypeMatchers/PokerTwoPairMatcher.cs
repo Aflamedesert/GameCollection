@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
-    class PokerTwoPairMatcher : IPokerArchetypeMatcher
+    public class PokerTwoPairMatcher : IPokerArchetypeMatcher
     {
         IPokerHandPatternChecker setChecker;
 

@@ -9,7 +9,7 @@ using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.State;
 
 namespace GameCollection.Games.Poker.PlayingEntities
 {
-    interface IPlayingEntity
+    public interface IPlayingEntity
     {
         bool HasStateObject();
         void SetStateObject(IPlayerState passedPlayerStateObject);

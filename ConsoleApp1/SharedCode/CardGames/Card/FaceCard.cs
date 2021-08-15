@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Card
 {
-    class FaceCard : ICard
+    public class FaceCard : ICard
     {
         protected string suit;
 

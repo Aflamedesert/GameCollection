@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerHandValueIterators
 {
-    abstract class AbstractHighCardValueIterator : IPokerHandValueIterator
+    public abstract class AbstractHighCardValueIterator : IPokerHandValueIterator
     {
         public virtual List<IPokerCard> GetHighestPartOfHand(List<IPokerCard> passedCards)
         {

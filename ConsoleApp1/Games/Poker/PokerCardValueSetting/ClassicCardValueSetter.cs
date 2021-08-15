@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerCardValueSetting
 {
-    class ClassicCardValueSetter : IPokerCardValueSetter
+    public class ClassicCardValueSetter : IPokerCardValueSetter
     {
         int JackValue;
         int QueenValue;

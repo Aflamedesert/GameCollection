@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics
 {
-    class SetDiagnosticsTool
+    public class SetDiagnosticsTool
     {
         AbstractHighKindValueIterator highKindIterator;
 
@@ -72,11 +72,11 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnosti
         {
             List<IPokerCard> finalCards = new List<IPokerCard>(passedCards);
 
-            int numberOfCards = finalCards.Count;
+            int numberOfCards = passedCards.Count;
 
             if(numberOfCards > 0)
             {
-                foreach(IPokerCard card in finalCards)
+                foreach(IPokerCard card in passedCards)
                 {
                     foreach(IPokerCard setCard in passedSet)
                     {

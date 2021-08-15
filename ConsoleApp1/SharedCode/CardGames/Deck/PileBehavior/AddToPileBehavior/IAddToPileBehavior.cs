@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.PileBehavior.AddToPileBehavior
 {
-    interface IAddToPileBehavior<T>
+    public interface IAddToPileBehavior<T>
     {
         void AddToPile(List<T> passedCards);
         void AddToPile(T passedCard);

@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.EvaluationBehavior
 {
-    interface IEvaluationBehavior
+    public interface IEvaluationBehavior
     {
         void Evaluate();
     }

@@ -10,7 +10,7 @@ using GameCollection.Games.BlackJack;
 
 namespace GameCollection
 {
-    class HighLevelFactory
+    public class HighLevelFactory
     {
         public MenuNodeFascade getMainMenu()
         {

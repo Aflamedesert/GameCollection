@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PlayingEntities;
 
 namespace GameCollection.Games.Poker.PokerGameEvaluation
 {
-    interface IPokerGameEvaluator
+    public interface IPokerGameEvaluator
     {
         IPlayingEntity GetWinner();
     }

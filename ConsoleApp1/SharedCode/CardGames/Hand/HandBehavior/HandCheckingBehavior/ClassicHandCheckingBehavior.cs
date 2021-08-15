@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.SharedCode.CardGames.Hand.HandBehavior.HandCheckingBehavior
 {
-    class ClassicHandCheckingBehavior
+    public class ClassicHandCheckingBehavior
     {
         List<ICard> hand;
 

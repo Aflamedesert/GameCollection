@@ -9,7 +9,7 @@ using GameCollection.Games.Poker.PokerHandPatternChecking;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
-    class PokerRoyalFlushMatcher : IPokerArchetypeMatcher
+    public class PokerRoyalFlushMatcher : IPokerArchetypeMatcher
     {
         AbstractHighCardValueIterator highCardIterator;
 

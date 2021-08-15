@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Hand.HandBehavior.DiscardingWholeHandBehavior
 {
-    interface IHandEmptyingBehavior<T>
+    public interface IHandEmptyingBehavior<T>
     {
         List<T> EmptyHand();
     }

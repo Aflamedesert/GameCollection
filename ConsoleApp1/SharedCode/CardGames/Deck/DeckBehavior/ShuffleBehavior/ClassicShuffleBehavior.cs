@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckBehavior.ShuffleBehavior
 {
-    class ClassicShuffleBehavior : IShuffleBehavior
+    public class ClassicShuffleBehavior : IShuffleBehavior
     {
         Random randomGenerator;
 

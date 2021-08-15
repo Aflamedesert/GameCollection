@@ -7,7 +7,7 @@ using GameCollection.SharedCode.CardGames.Deck.DeckBehavior.ShuffleBehavior;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckBehavior.DrawBehavior
 {
-    class ClassicDrawBehavior<T> : IDrawBehavior<T>
+    public class ClassicDrawBehavior<T> : IDrawBehavior<T>
     {
         IShuffleBehavior shuffleBehavior;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Card
 {
-    class NumberCard : ICard
+    public class NumberCard : ICard
     {
         protected int cardNumber;
 

@@ -7,7 +7,7 @@ using GameCollection.Games.BlackJack.Hands;
 
 namespace GameCollection.Games.BlackJack.Output
 {
-    class DisplayHandler
+    public class DisplayHandler
     {
         string[] cardBackDisplay;
 

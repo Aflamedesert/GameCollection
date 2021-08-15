@@ -8,7 +8,7 @@ using GameCollection.Games;
 
 namespace GameCollection.Menu
 {
-    class MenuNodeFascade
+    public class MenuNodeFascade
     {
         IMenu menu;
 

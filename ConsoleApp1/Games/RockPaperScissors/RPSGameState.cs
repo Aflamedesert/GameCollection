@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.RockPaperScissors
 {
-    class RPSGameState
+    public class RPSGameState
     {
         public struct RockPaperScissorsGameState
         {

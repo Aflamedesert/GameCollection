@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState.Val
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.BackupValuationCheckingBehavior
 {
-    class ClassicBackupValuationChecker : IBackupValuationChecker
+    public class ClassicBackupValuationChecker : IBackupValuationChecker
     {
         IValuationProcessState valuationState;
 

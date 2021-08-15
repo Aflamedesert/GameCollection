@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.BlackJack.Output
 {
-    class OutputHandler
+    public class OutputHandler
     {
         public void OpeningMessage()
         {

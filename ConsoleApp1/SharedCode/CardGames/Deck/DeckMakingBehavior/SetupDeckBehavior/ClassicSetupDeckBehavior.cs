@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.SharedCode.CardGames.Deck.DeckMakingBehavior.SetupDeckBehavior
 {
-    class ClassicSetupDeckBehavior : ISetupDeckBehavior
+    public class ClassicSetupDeckBehavior : ISetupDeckBehavior
     {
         string[] cardTypes;
 

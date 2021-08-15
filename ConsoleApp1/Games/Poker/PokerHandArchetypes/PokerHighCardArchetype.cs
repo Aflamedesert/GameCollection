@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerHandSorting;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    class PokerHighCardArchetype : IPokerHandArchetype
+    public class PokerHighCardArchetype : IPokerHandArchetype
     {
         AbstractHighCardValueIterator highCardValueIterator;
 

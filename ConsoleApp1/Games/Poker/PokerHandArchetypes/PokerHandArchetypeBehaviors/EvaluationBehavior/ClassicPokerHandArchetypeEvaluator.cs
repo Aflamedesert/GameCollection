@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState.Val
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.EvaluationBehavior
 {
-    class ClassicPokerHandArchetypeEvaluator : IEvaluationBehavior
+    public class ClassicPokerHandArchetypeEvaluator : IEvaluationBehavior
     {
         const int FirstIndex = 0;
 

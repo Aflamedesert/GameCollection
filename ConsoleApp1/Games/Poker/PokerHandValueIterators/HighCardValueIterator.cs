@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerHandValueIterators
 {
-    class HighCardValueIterator : AbstractHighCardValueIterator
+    public class HighCardValueIterator : AbstractHighCardValueIterator
     {
         const int FirstIndex = 0;
 

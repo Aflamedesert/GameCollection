@@ -8,7 +8,7 @@ using GameCollection.Administration;
 
 namespace GameCollection.Menu
 {
-    class GameMenu : IMenu
+    public class GameMenu : IMenu
     {
         IOptions optionsList;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.GameBetter
 {
-    interface IGameBetter
+    public interface IGameBetter
     {
         void AddChips(int passedNumberOfChips);
         int EmptyPot();
