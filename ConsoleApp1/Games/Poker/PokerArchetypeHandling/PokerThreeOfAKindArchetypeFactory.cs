@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandValueIterators;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
+using GameCollection.Games.Poker.PokerHandPatternChecking;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling
 {
@@ -18,12 +19,12 @@ namespace GameCollection.Games.Poker.PokerArchetypeHandling
 
         IPokerArchetypeMatcher threeOfAKindMatcher;
 
-        public PokerThreeOfAKindArchetypeFactory(AbstractHighKindValueIterator passedHighKindIterator, AbstractHighCardValueIterator passedHighCardIterator, PokerPatternCheckingPackage passedPatternCheckingPackage)
+        public PokerThreeOfAKindArchetypeFactory(IPokerArchetypeMatcher passedThreeOfAKindMatcher, AbstractHighKindValueIterator passedHighKindIterator, AbstractHighCardValueIterator passedHighCardIterator)
         {
             highKindIterator = passedHighKindIterator;
             highCardIterator = passedHighCardIterator;
 
-            threeOfAKindMatcher = new PokerThreeOfAKindMatcher(passedHighKindIterator, passedPatternCheckingPackage);
+            threeOfAKindMatcher = passedThreeOfAKindMatcher;
         }
 
         public IPokerHandArchetype getArchetypeInstance(List<IPokerCard> passedCards)

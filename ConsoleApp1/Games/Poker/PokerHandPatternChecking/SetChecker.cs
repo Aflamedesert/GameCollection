@@ -4,14 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerCardValueSetting;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
     public class SetChecker : IPokerHandPatternChecker
     {
-        const int FirstIndex = 0;
-
         public bool containsPattern(List<IPokerCard> passedCards)
         {
             return hasSet(passedCards);

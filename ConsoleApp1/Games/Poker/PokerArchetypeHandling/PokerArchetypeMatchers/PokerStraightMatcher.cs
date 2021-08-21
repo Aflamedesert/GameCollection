@@ -5,38 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandPatternChecking;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
     public class PokerStraightMatcher : IPokerArchetypeMatcher
     {
-        IPokerHandPatternChecker setChecker;
+        IPokerArchetypeHelper archetypeHelper;
 
-        IPokerHandPatternChecker straightChecker;
-
-        IPokerHandPatternChecker flushChecker;
-
-        public PokerStraightMatcher(PokerPatternCheckingPackage passedPatternCheckingPackage)
+        public PokerStraightMatcher(IPokerArchetypeHelper passedArchetypeHelper)
         {
-            setChecker = passedPatternCheckingPackage.setChecker;
-            straightChecker = passedPatternCheckingPackage.straightChecker;
-            flushChecker = passedPatternCheckingPackage.flushChecker;
+            archetypeHelper = passedArchetypeHelper;
         }
 
         public bool isArchetypeMatch(List<IPokerCard> passedCards)
         {
-            bool hasSet = setChecker.containsPattern(passedCards);
-            bool isStraight = straightChecker.containsPattern(passedCards);
-            bool isFlush = flushChecker.containsPattern(passedCards);
+            bool isStraight = true;
 
-            if((hasSet == false) && (isStraight == true) && (isFlush == false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return archetypeHelper.isPatternMatch(passedCards, isStraight: isStraight);
         }
     }
 }

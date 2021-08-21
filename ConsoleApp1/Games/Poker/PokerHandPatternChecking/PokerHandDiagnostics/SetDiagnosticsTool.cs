@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerHandValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics
 {
-    public class SetDiagnosticsTool
+    public class SetDiagnosticsTool : ISetDiagnosticsTool
     {
         AbstractHighKindValueIterator highKindIterator;
 
@@ -16,23 +16,15 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnosti
 
         List<List<IPokerCard>> sets;
 
-        public List<int> setLengths { get; private set; }
-
-        public int? numberOfSets { get; private set; }
-
-        public int? numberOfNonSetCards { get; private set; }
-
         public SetDiagnosticsTool(AbstractHighKindValueIterator passedHighKindIterator)
         {
             highKindIterator = passedHighKindIterator;
-
-            setLengths = null;
-            numberOfSets = null;
-            numberOfNonSetCards = null;
         }
 
-        public void AnalyzeCards(List<IPokerCard> passedCards)
+        public List<int> AnalyzeCards(List<IPokerCard> passedCards)
         {
+            List<int> setData = null;
+
             int numberOfCards = passedCards.Count;
 
             if(numberOfCards > 0)
@@ -54,18 +46,13 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnosti
                     }
                 } while (currentSet != null);
 
-                numberOfSets = getNumberOfSets();
-
-                setLengths = getSetLengths();
-
-                numberOfNonSetCards = getNumberOfNonSetCards();
+                if(sets.Count > 0)
+                {
+                    setData = GetSetData(sets);
+                }
             }
-            else
-            {
-                setLengths = null;
-                numberOfSets = null;
-                numberOfNonSetCards = null;
-            }
+
+            return setData;
         }
 
         private List<IPokerCard> RemoveSetFromCards(List<IPokerCard> passedCards, List<IPokerCard> passedSet)
@@ -91,30 +78,16 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnosti
             return finalCards;
         }
 
-        private int getNumberOfSets()
+        private List<int> GetSetData(List<List<IPokerCard>> passedSets)
         {
-            return sets.Count;
-        }
+            List<int> setData = new List<int>();
 
-        private List<int> getSetLengths()
-        {
-            setLengths = new List<int>();
-
-            foreach (List<IPokerCard> set in sets)
+            foreach(List<IPokerCard> set in passedSets)
             {
-                int currentSetLengths = set.Count;
-
-                setLengths.Add(currentSetLengths);
+                setData.Add(set.Count);
             }
 
-            return setLengths;
-        }
-
-        private int getNumberOfNonSetCards()
-        {
-            int numberOfUnEvaluatedCards = unEvaluatedCards.Count;
-
-            return numberOfUnEvaluatedCards;
+            return setData;
         }
     }
 }

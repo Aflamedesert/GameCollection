@@ -52,7 +52,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.FullHouse
         public TestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerFullHouseMatcher(factory.GetHighKindIteratorInstance(), factory.GetPatternCheckingPackageInstance());
+            matcher = new PokerFullHouseMatcher(factory.GetStrictArchetypeHelperInstance());
         }
     }
 

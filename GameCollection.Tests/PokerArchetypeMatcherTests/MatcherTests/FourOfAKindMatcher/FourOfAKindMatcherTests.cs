@@ -52,7 +52,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.FourOfAKi
         public TestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerFourOfAKindMatcher(factory.GetHighKindIteratorInstance(), factory.GetPatternCheckingPackageInstance());
+            matcher = new PokerFourOfAKindMatcher(factory.GetStrictArchetypeHelperInstance());
         }
     }
 

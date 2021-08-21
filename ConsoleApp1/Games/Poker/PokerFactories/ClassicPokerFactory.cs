@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerHandValueIterators;
 using GameCollection.Games.Poker.PokerHandSorting;
+using GameCollection.Games.Poker.PokerHandValueIterators;
 using GameCollection.Games.Poker.PokerHandPatternChecking;
-using GameCollection.Games.Poker.PokerArchetypeHandling;
+using GameCollection.Games.Poker.PokerHandPatternChecking.SetDataMatcher;
+using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerStraightFlushHelper;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper.PokerArchetypeHelperBase;
 
 namespace GameCollection.Games.Poker.PokerFactories
 {
@@ -21,6 +25,36 @@ namespace GameCollection.Games.Poker.PokerFactories
             FlushChecker flushChecker = GetFlushCheckerInstance();
 
             return new PokerPatternCheckingPackage(setChecker, straightChecker, flushChecker);
+        }
+
+        public StrictPokerArchetypeHelper GetStrictArchetypeHelperInstance()
+        {
+            return new StrictPokerArchetypeHelper(GetSetDiagnosticsToolInstance(), GetStrictSetDataMatcherInstance(), GetPatternCheckingPackageInstance());
+        }
+
+        public LoosePokerArchetypeHelper GetLooseArchetypeHelperInstance()
+        {
+            return new LoosePokerArchetypeHelper(GetSetDiagnosticsToolInstance(), GetLooseSetDataMatcherInstance(), GetPatternCheckingPackageInstance());
+        }
+
+        public FiveCardStraightFlushHelper GetFiveCardStraightFlushHelperInstance()
+        {
+            return new FiveCardStraightFlushHelper(GetFlushCheckerInstance(), GetStraightCheckerInstance());
+        }
+
+        public StrictSetDataMatcher GetStrictSetDataMatcherInstance()
+        {
+            return new StrictSetDataMatcher();
+        }
+
+        public LooseSetDataMatcher GetLooseSetDataMatcherInstance()
+        {
+            return new LooseSetDataMatcher();
+        }
+
+        public SetDiagnosticsTool GetSetDiagnosticsToolInstance()
+        {
+            return new SetDiagnosticsTool(GetHighKindIteratorInstance());
         }
 
         public HighCardValueIterator GetHighCardIteratorInstance()

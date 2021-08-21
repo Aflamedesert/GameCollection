@@ -18,13 +18,13 @@ namespace GameCollection.Games.Poker.PokerArchetypeHandling
 
         IPokerArchetypeMatcher straightFlushMatcher;
 
-        public PokerStraightFlushArchetypeFactory(AbstractHighCardValueIterator passedHighCardIterator, PokerPatternCheckingPackage passedPatternCheckingPackage, List<string> passedSuitRankings)
+        public PokerStraightFlushArchetypeFactory(IPokerArchetypeMatcher passedStraightFlushMatcher, AbstractHighCardValueIterator passedHighCardIterator, List<string> passedSuitRankings)
         {
             highCardIterator = passedHighCardIterator;
 
             suitRankings = passedSuitRankings;
 
-            straightFlushMatcher = new PokerStraightFlushMatcher(passedHighCardIterator, passedPatternCheckingPackage);
+            straightFlushMatcher = passedStraightFlushMatcher;
         }
 
         public IPokerHandArchetype getArchetypeInstance(List<IPokerCard> passedCards)

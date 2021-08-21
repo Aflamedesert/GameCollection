@@ -52,7 +52,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightF
         public TestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerStraightFlushMatcher(factory.GetHighCardIteratorInstance(), factory.GetPatternCheckingPackageInstance());
+            matcher = new PokerStraightFlushMatcher(factory.GetFiveCardStraightFlushHelperInstance(), factory.GetHighCardIteratorInstance());
         }
     }
 

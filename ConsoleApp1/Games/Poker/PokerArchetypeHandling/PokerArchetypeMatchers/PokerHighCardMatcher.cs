@@ -4,40 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerHandPatternChecking;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
     public class PokerHighCardMatcher : IPokerArchetypeMatcher
     {
-        IPokerHandPatternChecker setChecker;
+        IPokerArchetypeHelper archetypeHelper;
 
-        IPokerHandPatternChecker straightChecker;
-
-        IPokerHandPatternChecker flushChecker;
-
-        public PokerHighCardMatcher(PokerPatternCheckingPackage passedPatternCheckingPackage)
+        public PokerHighCardMatcher(IPokerArchetypeHelper passedArchetypeHelper)
         {
-            setChecker = passedPatternCheckingPackage.setChecker;
-            straightChecker = passedPatternCheckingPackage.straightChecker;
-            flushChecker = passedPatternCheckingPackage.flushChecker;
+            archetypeHelper = passedArchetypeHelper;
         }
+
         public bool isArchetypeMatch(List<IPokerCard> passedCards)
         {
-            bool hasSet = setChecker.containsPattern(passedCards);
+            bool isFlush = false;
 
-            bool hasStraight = straightChecker.containsPattern(passedCards);
+            bool isStraight = false;
 
-            bool hasFlush = flushChecker.containsPattern(passedCards);
+            bool hasSet = false;
 
-            if((hasSet == false) && (hasStraight == false) && (hasFlush == false))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return archetypeHelper.isPatternMatch(passedCards, isFlush, isStraight, hasSet);
         }
     }
 }

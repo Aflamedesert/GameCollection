@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerHandPatternChecking;
 
-namespace GameCollection.Games.Poker.PokerArchetypeHandling
+namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
     public class PokerPatternCheckingPackage
     {

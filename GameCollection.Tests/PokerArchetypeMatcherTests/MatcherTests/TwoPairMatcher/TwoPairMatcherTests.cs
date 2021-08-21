@@ -52,7 +52,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.TwoPairMa
         public TestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerTwoPairMatcher(factory.GetHighKindIteratorInstance(), factory.GetPatternCheckingPackageInstance());
+            matcher = new PokerTwoPairMatcher(factory.GetStrictArchetypeHelperInstance());
         }
     }
 

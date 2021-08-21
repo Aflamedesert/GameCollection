@@ -5,39 +5,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandValueIterators;
-using GameCollection.Games.Poker.PokerHandPatternChecking;
-using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerStraightFlushHelper;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
     public class PokerStraightFlushMatcher : IPokerArchetypeMatcher
     {
+        IStraightFlushHelper straightFlushHelper;
+
         AbstractHighCardValueIterator highCardIterator;
 
-        IPokerHandPatternChecker setChecker;
-
-        IPokerHandPatternChecker straightChecker;
-
-        IPokerHandPatternChecker flushChecker;
-
-        public PokerStraightFlushMatcher(AbstractHighCardValueIterator passedHighCardIterator, PokerPatternCheckingPackage passedPatternCheckingPackage)
+        public PokerStraightFlushMatcher(IStraightFlushHelper passedStraightFlushHelper, AbstractHighCardValueIterator passedHighCardIterator)
         {
-            highCardIterator = passedHighCardIterator;
+            straightFlushHelper = passedStraightFlushHelper;
 
-            setChecker = passedPatternCheckingPackage.setChecker;
-            straightChecker = passedPatternCheckingPackage.straightChecker;
-            flushChecker = passedPatternCheckingPackage.flushChecker;
+            highCardIterator = passedHighCardIterator;
         }
 
         public bool isArchetypeMatch(List<IPokerCard> passedCards)
         {
-            bool hasSet = setChecker.containsPattern(passedCards);
-            bool isStraight = straightChecker.containsPattern(passedCards);
-            bool isFlush = flushChecker.containsPattern(passedCards);
+            List<IPokerCard> possibleStraightFlushCards = straightFlushHelper.FindStraightFlush(passedCards);
 
-            if((hasSet == false) && (isStraight == true) && (isFlush == true))
+            if(possibleStraightFlushCards != null)
             {
-                IPokerCard highCard = highCardIterator.GetHighCard(passedCards);
+                IPokerCard highCard = highCardIterator.GetHighCard(possibleStraightFlushCards);
 
                 string highCardType = highCard.getType();
 
@@ -45,15 +36,9 @@ namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatche
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }

@@ -4,64 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerHandValueIterators;
-using GameCollection.Games.Poker.PokerHandPatternChecking;
-using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers
 {
     public class PokerFourOfAKindMatcher : IPokerArchetypeMatcher
     {
-        const int FirstIndex = 0;
+        IPokerArchetypeHelper archetypeHelper;
 
-        IPokerHandPatternChecker setChecker;
-
-        SetDiagnosticsTool setDiagnosticsTool;
-
-        public PokerFourOfAKindMatcher(AbstractHighKindValueIterator passedHighKindIterator, PokerPatternCheckingPackage passedPatternCheckingPackage)
+        public PokerFourOfAKindMatcher(IPokerArchetypeHelper passedArchetypeHelper)
         {
-            setChecker = passedPatternCheckingPackage.setChecker;
-
-            setDiagnosticsTool = new SetDiagnosticsTool(passedHighKindIterator);
+            archetypeHelper = passedArchetypeHelper;
         }
 
         public bool isArchetypeMatch(List<IPokerCard> passedCards)
         {
-            const int SetNumberTarget = 1;
-            const int SetSizeTarget = 4;
-
-            bool hasSet = setChecker.containsPattern(passedCards);
-
-            if(hasSet == true)
+            List<int> targetSet = new List<int>()
             {
-                setDiagnosticsTool.AnalyzeCards(passedCards);
+                4
+            };
 
-                int? numberOfSets = setDiagnosticsTool.numberOfSets;
-
-                List<int> setLengths = setDiagnosticsTool.setLengths;
-
-                if(numberOfSets == SetNumberTarget)
-                {
-                    int numberOfCardsInSet = setLengths[FirstIndex];
-
-                    if(numberOfCardsInSet == SetSizeTarget)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            return archetypeHelper.isPatternMatch(passedCards, setTarget: targetSet);
         }
     }
 }

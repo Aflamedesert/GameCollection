@@ -52,7 +52,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.HighCardM
         public HighCardTestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerHighCardMatcher(factory.GetPatternCheckingPackageInstance());
+            matcher = new PokerHighCardMatcher(factory.GetStrictArchetypeHelperInstance());
         }
     }
 

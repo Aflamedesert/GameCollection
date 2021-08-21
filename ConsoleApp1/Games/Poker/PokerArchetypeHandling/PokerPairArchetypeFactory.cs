@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandValueIterators;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
+using GameCollection.Games.Poker.PokerHandPatternChecking;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling
 {
@@ -18,12 +19,12 @@ namespace GameCollection.Games.Poker.PokerArchetypeHandling
 
         IPokerArchetypeMatcher pairMatcher;
 
-        public PokerPairArchetypeFactory(AbstractHighKindValueIterator passedHighKindIterator, AbstractHighCardValueIterator passedHighCardIterator, PokerPatternCheckingPackage passedPatternCheckingPackage)
+        public PokerPairArchetypeFactory(IPokerArchetypeMatcher passedPairMatcher, AbstractHighKindValueIterator passedHighKindIterator, AbstractHighCardValueIterator passedHighCardIterator)
         {
             highKindIterator = passedHighKindIterator;
             highCardIterator = passedHighCardIterator;
 
-            pairMatcher = new PokerPairMatcher(passedHighKindIterator, passedPatternCheckingPackage);
+            pairMatcher = passedPairMatcher;
         }
         public IPokerHandArchetype getArchetypeInstance(List<IPokerCard> passedCards)
         {
