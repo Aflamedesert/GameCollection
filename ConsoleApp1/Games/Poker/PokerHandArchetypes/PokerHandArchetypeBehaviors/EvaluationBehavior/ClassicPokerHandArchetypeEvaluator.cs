@@ -5,44 +5,53 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerHandValueIterators;
-using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.BackupValuationCheckingBehavior;
 using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState.ValuationProcessState;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.EvaluationBehavior
 {
     public class ClassicPokerHandArchetypeEvaluator : IEvaluationBehavior
     {
-        const int FirstIndex = 0;
-
         IValuationProcessState valuationState;
 
-        IBackupValuationChecker backupValuationChecker;
-
-        public ClassicPokerHandArchetypeEvaluator(IValuationProcessState passedValuationState, IBackupValuationChecker passedBackupChecker) 
+        public ClassicPokerHandArchetypeEvaluator(IValuationProcessState passedValuationState) 
         {
             valuationState = passedValuationState;
-
-            backupValuationChecker = passedBackupChecker;
         }
 
         public void Evaluate()
         {
-            List<IPokerCard> highCards = null;
+            List<IPokerCard> highCards;
 
-            int? highValue = null;
+            int? highValue;
 
-            if(backupValuationChecker.hasBackupValuation() == true)
+            List<IPokerCard> cards = valuationState.getCards();
+
+            if(cards != null)
             {
-                List<IPokerCard> cards = valuationState.getCards();
+                int numberOfCards = cards.Count;
 
-                IPokerHandValueIterator valueIterator = valuationState.getCurrentValuationProcess();
+                if (numberOfCards > 0)
+                {
+                    IPokerHandValueIterator valueIterator = valuationState.getCurrentValuationProcess();
 
-                highCards = getHighCards(cards, valueIterator);
-                highValue = highCards[FirstIndex].getIntValue();
+                    highCards = getHighCards(cards, valueIterator);
+                    highValue = highCards[Constants.FirstIndex].getIntValue();
+
+                    valuationState.setCurrentHighCards(highCards);
+                    valuationState.setCurrentHighValue(highValue);
+                }
+                else
+                {
+                    SetEndValues();
+                }
             }
+        }
 
-            valuationState.setCurrentHighCards(highCards);
-            valuationState.setCurrentHighValue(highValue);
+        private void SetEndValues()
+        {
+            valuationState.setCards(null);
+            valuationState.setCurrentHighCards(null);
+            valuationState.setCurrentHighValue(null);
         }
 
         private List<IPokerCard> getHighCards(List<IPokerCard> passedCards, IPokerHandValueIterator passedValuationMethod)

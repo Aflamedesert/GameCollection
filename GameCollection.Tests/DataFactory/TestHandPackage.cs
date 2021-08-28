@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 
-namespace GameCollection.Tests.PokerArchetypeMatcherTests.InstanceFactory
+namespace GameCollection.Tests.DataFactory
 {
     class TestHandPackage
     {

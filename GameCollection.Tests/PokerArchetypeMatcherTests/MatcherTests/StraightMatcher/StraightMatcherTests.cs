@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
-using GameCollection.Tests.PokerArchetypeMatcherTests.InstanceFactory;
+using GameCollection.Tests.DataFactory;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 using GameCollection.Games.Poker.PokerFactories;
 using Xunit;
@@ -15,17 +15,9 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightM
     {
         public SuccessfulParameters()
         {
-            List<IPokerCard> handVariation = new List<IPokerCard>()
-            {
-                new PokerFaceCard("Queen", 12, "Hearts", null),
-                new PokerFaceCard("Jack", 11, "Hearts", null),
-                new PokerNumberCard(10, "Diamonds", null),
-                new PokerNumberCard(9, "Clubs", null),
-                new PokerNumberCard(8, "Clubs", null)
-            };
-
-            Add(handVariation);
             Add(TestDataFactory.GetStraight());
+            Add(TestDataFactory.GetStraight2());
+            Add(TestDataFactory.GetStraight3());
         }
     }
 
@@ -52,7 +44,9 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightM
         public TestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerStraightMatcher(factory.GetStrictArchetypeHelperInstance());
+            //matcher = new PokerStraightMatcher(factory.GetStrictArchetypeHelperInstance());
+            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
+                factory.GetRoyalFlushHelperInstance(), isStraight: true);
         }
     }
 

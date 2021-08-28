@@ -20,7 +20,6 @@ C:\Projects\Game Collection\GameCollection\ConsoleApp1\bin\Debug\net5.0\GameColl
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\bin\Debug\net5.0\GameCollection.dll
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\bin\Debug\net5.0\ref\GameCollection.dll
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\bin\Debug\net5.0\GameCollection.pdb
-C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.csprojAssemblyReference.cache
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.GeneratedMSBuildEditorConfig.editorconfig
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.AssemblyInfoInputs.cache
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.AssemblyInfo.cs
@@ -29,3 +28,4 @@ C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameColl
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\ref\GameCollection.dll
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.pdb
 C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.genruntimeconfig.cache
+C:\Projects\Game Collection\GameCollection\ConsoleApp1\obj\Debug\net5.0\GameCollection.csproj.AssemblyReference.cache

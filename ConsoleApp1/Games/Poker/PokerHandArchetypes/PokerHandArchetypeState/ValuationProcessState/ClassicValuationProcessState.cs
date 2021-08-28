@@ -48,12 +48,26 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState
 
         public List<IPokerCard> getCards()
         {
-            return new List<IPokerCard>(cards);
+            if(cards != null)
+            {
+                return new List<IPokerCard>(cards);
+            }
+            else
+            {
+                return cards;
+            }
         }
 
         public List<IPokerCard> getCurrentHighCards()
         {
-            return new List<IPokerCard>(currentHighCards);
+            if(currentHighCards != null)
+            {
+                return new List<IPokerCard>(currentHighCards);
+            }
+            else
+            {
+                return currentHighCards;
+            }
         }
 
         public int? getCurrentHighValue()
@@ -84,7 +98,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState
             }
             else
             {
-                cards = null;
+                cards = passedCards;
             }
         }
 
@@ -96,7 +110,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState
             }
             else
             {
-                currentHighCards = null;
+                currentHighCards = passedCards;
             }
         }
 
@@ -114,7 +128,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState
             }
             else
             {
-                throw new ArgumentOutOfRangeException($"The argument you gave, {passedIndex} was out of the bounds of the Valuation Process list!");
+                throw new ArgumentOutOfRangeException($"The argument you gave, passedIndex = {passedIndex}, was out of the bounds of the Valuation Process list!");
             }
         }
     }

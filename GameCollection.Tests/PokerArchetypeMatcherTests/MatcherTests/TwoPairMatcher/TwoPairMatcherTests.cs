@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
-using GameCollection.Tests.PokerArchetypeMatcherTests.InstanceFactory;
+using GameCollection.Tests.DataFactory;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 using GameCollection.Games.Poker.PokerFactories;
 using Xunit;
@@ -15,17 +15,9 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.TwoPairMa
     {
         public SuccessfulParameters()
         {
-            List<IPokerCard> otherHandInstance = new List<IPokerCard>()
-            {
-                new PokerFaceCard("Jack", 11, "Clubs", null),
-                new PokerFaceCard("King", 13, "Clubs", null),
-                new PokerFaceCard("King", 13, "Hearts", null),
-                new PokerFaceCard("Jack", 11, "Hearts", null),
-                new PokerNumberCard(5, "Hearts", null),
-            };
-
-            Add(otherHandInstance);
             Add(TestDataFactory.GetTwoPair());
+            Add(TestDataFactory.GetTwoPair2());
+            Add(TestDataFactory.GetTwoPair3());
         }
     }
 
@@ -51,8 +43,16 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.TwoPairMa
 
         public TestSetup()
         {
+            List<int> targetSet = new List<int>()
+            {
+                2,
+                2
+            };
+
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerTwoPairMatcher(factory.GetStrictArchetypeHelperInstance());
+            //matcher = new PokerTwoPairMatcher(factory.GetStrictArchetypeHelperInstance());
+            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
+                factory.GetRoyalFlushHelperInstance(), setTarget: targetSet);
         }
     }
 

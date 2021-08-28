@@ -22,11 +22,11 @@ namespace GameCollection.SharedCode.Utilities.Exceptions
         {
         }
 
-        public UnintendedArgumentSetupException(string message, string paramName) : base(message, paramName)
+        public UnintendedArgumentSetupException(string paramName, string message) : base(message, paramName)
         {
         }
 
-        public UnintendedArgumentSetupException(string message, string paramName, Exception innerException) : base(message, paramName, innerException)
+        public UnintendedArgumentSetupException(string paramName, string message, Exception innerException) : base(message, paramName, innerException)
         {
         }
 

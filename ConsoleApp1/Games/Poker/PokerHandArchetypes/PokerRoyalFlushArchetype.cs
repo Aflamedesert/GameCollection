@@ -9,16 +9,17 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
     public class PokerRoyalFlushArchetype : IPokerHandArchetype
     {
-        const int FirstIndex = 0;
-
         int? currentValue;
 
+        bool hasBeenEvaluated;
 
         public PokerRoyalFlushArchetype(List<IPokerCard> passedCards, List<string> passedOrderedSuitRankings)
         {
             string handSuit = findSuitOfHand(passedCards);
 
             currentValue = findSuitRank(handSuit, passedOrderedSuitRankings);
+
+            hasBeenEvaluated = false;
         }
 
         private string findSuitOfHand(List<IPokerCard> passedCards)
@@ -27,7 +28,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes
 
             if(numberOfCards > 0)
             {
-                IPokerCard firstCard = passedCards[FirstIndex];
+                IPokerCard firstCard = passedCards[Constants.FirstIndex];
 
                 string suit = firstCard.getSuit();
 
@@ -62,19 +63,13 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes
 
         public int? getValuation()
         {
-            return currentValue;
-        }
-
-        public bool hasBackUpValuation()
-        {
-            return false;
-        }
-
-        public void incrementBackUpValuation()
-        {
-            if(currentValue != null)
+            if(hasBeenEvaluated == false)
             {
-                currentValue = null;
+                return currentValue;
+            }
+            else
+            {
+                return null;
             }
         }
     }

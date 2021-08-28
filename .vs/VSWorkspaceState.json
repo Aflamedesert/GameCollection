@@ -1,8 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ConsoleApp1"
+    "\\ConsoleApp1",
+    "\\ConsoleApp1\\Games",
+    "\\ConsoleApp1\\Games\\Poker",
+    "\\ConsoleApp1\\Games\\Poker\\PokerHandArchetypes",
+    "\\ConsoleApp1\\Games\\Poker\\PokerHandArchetypes\\PokerHandArchetypeBehaviors",
+    "\\ConsoleApp1\\Games\\Poker\\PokerHandArchetypes\\PokerHandArchetypeBehaviors\\IncrementingValuationBehavior",
+    "\\GameCollection.Tests",
+    "\\GameCollection.Tests\\PokerArchetypeTests",
+    "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests",
+    "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests\\HighCardTests"
   ],
-  "SelectedNode": "\\ConsoleApp1\\GameCollection.sln",
+  "SelectedNode": "\\ConsoleApp1\\Games\\Poker\\PokerHandArchetypes\\PokerHandArchetypeBehaviors\\IncrementingValuationBehavior\\ClassicValuationProcessIncrementor.cs",
   "PreviewInSolutionExplorer": false
 }

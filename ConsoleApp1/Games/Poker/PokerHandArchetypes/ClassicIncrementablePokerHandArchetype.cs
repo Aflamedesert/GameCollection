@@ -6,28 +6,24 @@ using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandValueIterators;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeState.ValuationProcessState;
-using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.BackupValuationCheckingBehavior;
 using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.EvaluationBehavior;
 using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeBehaviors.IncrementingValuationBehavior;
 
 namespace GameCollection.Games.Poker.PokerHandArchetypes
 {
-    public class PokerFullHouseArchetype : IPokerHandArchetype
+    public class ClassicIncrementablePokerHandArchetype : IPokerIncrementableHandArchetype
     {
         IValuationProcessState valuationState;
-
-        IBackupValuationChecker backupChecker;
 
         IEvaluationBehavior evaluator;
 
         IValuationProcessIncrementor incrementor;
 
-        public PokerFullHouseArchetype(List<IPokerCard> passedCards, AbstractHighKindValueIterator passedHighKindIterator)
+        public ClassicIncrementablePokerHandArchetype(IValuationProcessState passedValuationState, IEvaluationBehavior passedEvaluationBehavior, IValuationProcessIncrementor passedValuationIncrementor)
         {
-            valuationState = new ClassicValuationProcessState(passedCards, passedHighKindIterator);
-            backupChecker = new ClassicBackupValuationChecker(valuationState);
-            evaluator = new ClassicPokerHandArchetypeEvaluator(valuationState, backupChecker);
-            incrementor = new ClassicValuationProcessIncrementor(valuationState, evaluator);
+            valuationState = passedValuationState;
+            evaluator = passedEvaluationBehavior;
+            incrementor = passedValuationIncrementor;
 
             evaluator.Evaluate();
         }
@@ -37,14 +33,10 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes
             return valuationState.getCurrentHighValue();
         }
 
-        public bool hasBackUpValuation()
-        {
-            return backupChecker.hasBackupValuation();
-        }
-
-        public void incrementBackUpValuation()
+        public void Increment()
         {
             incrementor.Increment();
+            evaluator.Evaluate();
         }
     }
 }

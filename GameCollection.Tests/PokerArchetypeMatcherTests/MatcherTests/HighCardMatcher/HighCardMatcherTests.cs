@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
-using GameCollection.Tests.PokerArchetypeMatcherTests.InstanceFactory;
+using GameCollection.Tests.DataFactory;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 using GameCollection.Games.Poker.PokerFactories;
 using Xunit;
@@ -15,17 +15,9 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.HighCardM
     {
         public SuccessfulParameters()
         {
-            List<IPokerCard> highCardHand1 = new List<IPokerCard>()
-            {
-                new PokerFaceCard("Jack", 11, "Clubs", null),
-                new PokerFaceCard("King", 13, "Clubs", null),
-                new PokerFaceCard("Queen", 12, "Hearts", null),
-                new PokerNumberCard(3, "Hearts", null),
-                new PokerNumberCard(5, "Hearts", null),
-            };
-
-            Add(highCardHand1);
             Add(TestDataFactory.GetHighCard());
+            Add(TestDataFactory.GetHighCard2());
+            Add(TestDataFactory.GetHighCard3());
         }
     }
 
@@ -47,18 +39,20 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.HighCardM
 
     public class HighCardTestSetup
     {
-        public PokerHighCardMatcher matcher { get; }
+        public IPokerArchetypeMatcher matcher { get; }
 
         public HighCardTestSetup()
         {
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerHighCardMatcher(factory.GetStrictArchetypeHelperInstance());
+            //matcher = new PokerHighCardMatcher(factory.GetStrictArchetypeHelperInstance());
+            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
+                factory.GetRoyalFlushHelperInstance(), false, false, false);
         }
     }
 
     public class HighCardMatcherTests : IClassFixture<HighCardTestSetup>
     {
-        PokerHighCardMatcher matcher;
+        IPokerArchetypeMatcher matcher;
 
         public HighCardMatcherTests(HighCardTestSetup testSetup)
         {

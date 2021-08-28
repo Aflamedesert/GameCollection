@@ -10,7 +10,7 @@ using GameCollection.Games.Poker.PokerHandPatternChecking.SetDataMatcher;
 using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerStraightFlushHelper;
-using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerArchetypeHelper.PokerArchetypeHelperBase;
+using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers.PokerRoyalFlushHelper;
 
 namespace GameCollection.Games.Poker.PokerFactories
 {
@@ -35,6 +35,13 @@ namespace GameCollection.Games.Poker.PokerFactories
         public LoosePokerArchetypeHelper GetLooseArchetypeHelperInstance()
         {
             return new LoosePokerArchetypeHelper(GetSetDiagnosticsToolInstance(), GetLooseSetDataMatcherInstance(), GetPatternCheckingPackageInstance());
+        }
+
+        public RoyalFlushHelper GetRoyalFlushHelperInstance()
+        {
+            string royalFlushHighCardType = "Ace";
+
+            return new RoyalFlushHelper(GetFiveCardStraightFlushHelperInstance(), GetHighCardIteratorInstance(), royalFlushHighCardType);
         }
 
         public FiveCardStraightFlushHelper GetFiveCardStraightFlushHelperInstance()

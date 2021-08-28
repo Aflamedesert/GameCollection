@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
-using GameCollection.Tests.PokerArchetypeMatcherTests.InstanceFactory;
+using GameCollection.Tests.DataFactory;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 using GameCollection.Games.Poker.PokerFactories;
 using Xunit;
@@ -15,17 +15,9 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.FourOfAKi
     {
         public SuccessfulParameters()
         {
-            List<IPokerCard> handVariation = new List<IPokerCard>()
-            {
-                new PokerFaceCard("Queen", 12, "Hearts", null),
-                new PokerNumberCard(10, "Hearts", null),
-                new PokerNumberCard(10, "Diamonds", null),
-                new PokerNumberCard(10, "Clubs", null),
-                new PokerNumberCard(10, "Spades", null)
-            };
-
-            Add(handVariation);
             Add(TestDataFactory.GetFourOfAKind());
+            Add(TestDataFactory.GetFourOfAKind2());
+            Add(TestDataFactory.GetFourOfAKind3());
         }
     }
 
@@ -51,8 +43,15 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.FourOfAKi
 
         public TestSetup()
         {
+            List<int> targetSet = new List<int>()
+            {
+                4
+            };
+
             ClassicPokerFactory factory = new ClassicPokerFactory();
-            matcher = new PokerFourOfAKindMatcher(factory.GetStrictArchetypeHelperInstance());
+            //matcher = new PokerFourOfAKindMatcher(factory.GetStrictArchetypeHelperInstance());
+            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
+                factory.GetRoyalFlushHelperInstance(), setTarget: targetSet);
         }
     }
 
