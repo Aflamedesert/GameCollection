@@ -45,11 +45,11 @@ namespace GameCollection.Tests.DataFactory
         {
             List<IPokerCard> cardList = new List<IPokerCard>()
             {
-                new PokerFaceCard("Ace", 14, "Diamonds", null),
-                new PokerFaceCard("King", 13, "Diamonds", null),
-                new PokerFaceCard("Queen", 12, "Diamonds", null),
-                new PokerFaceCard("Jack", 11, "Diamonds", null),
-                new PokerNumberCard(10, "Diamonds", null)
+                new PokerFaceCard("Ace", 14, "Spades", null),
+                new PokerFaceCard("King", 13, "Spades", null),
+                new PokerFaceCard("Queen", 12, "Spades", null),
+                new PokerFaceCard("Jack", 11, "Spades", null),
+                new PokerNumberCard(10, "Spades", null)
             };
 
             return cardList;
@@ -101,10 +101,10 @@ namespace GameCollection.Tests.DataFactory
         {
             List<IPokerCard> cardList = new List<IPokerCard>()
             {
-                new PokerNumberCard(10, "Hearts", null),
-                new PokerNumberCard(10, "Diamonds", null),
-                new PokerNumberCard(10, "Spades", null),
-                new PokerNumberCard(10, "Clubs", null),
+                new PokerNumberCard(9, "Hearts", null),
+                new PokerNumberCard(9, "Diamonds", null),
+                new PokerNumberCard(9, "Spades", null),
+                new PokerNumberCard(9, "Clubs", null),
                 new PokerNumberCard(6, "Hearts", null),
             };
 

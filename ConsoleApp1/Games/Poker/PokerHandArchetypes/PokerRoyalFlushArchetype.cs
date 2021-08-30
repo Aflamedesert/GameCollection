@@ -65,6 +65,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes
         {
             if(hasBeenEvaluated == false)
             {
+                hasBeenEvaluated = true;
                 return currentValue;
             }
             else

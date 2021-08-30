@@ -9,8 +9,6 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
     public class FlushChecker : IPokerHandPatternChecker
     {
-        const int FirstIndex = 0;
-
         public bool containsPattern(List<IPokerCard> passedCards)
         {
             return isFlush(passedCards);
@@ -22,7 +20,7 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking
 
             if(numberOfCards > 0)
             {
-                string targetSuit = passedCards[FirstIndex].getSuit();
+                string targetSuit = passedCards[Constants.FirstIndex].getSuit();
 
                 for(int i = 1; i < numberOfCards; i++)
                 {

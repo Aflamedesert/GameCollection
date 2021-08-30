@@ -48,13 +48,13 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.HighCardTests
     {
         IPokerHandArchetypeFactory archetypeFactory;
 
-        DelegateTest generator;
+        IPokerArchetypeComparator comparator;
 
         public HighCardTests(PokerArchetypeTestCollectionFixture factoryFixture)
         {
             archetypeFactory = factoryFixture.factory;
 
-            generator = factoryFixture.testGenerator;
+            comparator = factoryFixture.comparator;
         }
 
 
@@ -62,7 +62,11 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.HighCardTests
         [ClassData(typeof(SuccessfulParameters))]
         public void HighCardTest_ShouldBeTrue(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
-            bool? actual = generator.RunArchetypeTest(archetypeFactory.GetHighCardArchetypeInstance, firstHand, secondHand);
+            IPokerHandArchetype firstHandArchetype = archetypeFactory.GetHighCardArchetypeInstance(firstHand);
+
+            IPokerHandArchetype secondArchetype = archetypeFactory.GetHighCardArchetypeInstance(secondHand);
+
+            bool? actual = comparator.isFirstBetterThanSecond(firstHandArchetype, secondArchetype);
 
             Assert.True(actual);
         }
@@ -72,7 +76,11 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.HighCardTests
         [ClassData(typeof(NullParameters))]
         public void HighCardTest_ShouldBeNull(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
-            bool? actual = generator.RunArchetypeTest(archetypeFactory.GetHighCardArchetypeInstance, firstHand, secondHand);
+            IPokerHandArchetype firstHandArchetype = archetypeFactory.GetHighCardArchetypeInstance(firstHand);
+
+            IPokerHandArchetype secondArchetype = archetypeFactory.GetHighCardArchetypeInstance(secondHand);
+
+            bool? actual = comparator.isFirstBetterThanSecond(firstHandArchetype, secondArchetype);
 
             Assert.Null(actual);
         }
@@ -81,7 +89,11 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.HighCardTests
         [ClassData(typeof(FailedParameters))]
         public void HighCardTest_ShouldBeFalse(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
-            bool? actual = generator.RunArchetypeTest(archetypeFactory.GetHighCardArchetypeInstance, firstHand, secondHand);
+            IPokerHandArchetype firstHandArchetype = archetypeFactory.GetHighCardArchetypeInstance(firstHand);
+
+            IPokerHandArchetype secondArchetype = archetypeFactory.GetHighCardArchetypeInstance(secondHand);
+
+            bool? actual = comparator.isFirstBetterThanSecond(firstHandArchetype, secondArchetype);
 
             Assert.False(actual);
         }

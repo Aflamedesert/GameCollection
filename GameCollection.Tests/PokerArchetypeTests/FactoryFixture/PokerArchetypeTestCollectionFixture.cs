@@ -17,8 +17,6 @@ namespace GameCollection.Tests.PokerArchetypeTests.FactoryFixture
 
         public IPokerArchetypeComparator comparator { get; }
 
-        public DelegateTest testGenerator { get; }
-
         public PokerArchetypeTestCollectionFixture()
         {
             IPokerHandArchetypeComponentFactory componentFactory = new ClassicPokerHandArchetypeComponentFactory();
@@ -35,8 +33,6 @@ namespace GameCollection.Tests.PokerArchetypeTests.FactoryFixture
             factory = new ClassicPokerHandArchetypeFactory(componentFactory, valueIteratorFactory, suitRankings);
 
             comparator = new ClassicPokerArchetypeComparator();
-
-            testGenerator = new DelegateTest(comparator);
         }
     }
 

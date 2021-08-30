@@ -7,7 +7,6 @@ using GameCollection.SharedCode.CardGames.Hand.HandBehavior.StartingHandBehavior
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.DiscardingWholeHandBehavior;
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.HandCheckingBehavior;
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.AddingHandBehavior;
-using GameCollection.SharedCode.CardGames.Card;
 using GameCollection.Games.Poker.PokerHandSorting;
 using GameCollection.Games.Poker.PokerCards;
 

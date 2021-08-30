@@ -12,6 +12,6 @@
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests\\HighCardTests"
   ],
-  "SelectedNode": "\\ConsoleApp1\\Games\\Poker\\PokerHandArchetypes\\PokerHandArchetypeBehaviors\\IncrementingValuationBehavior\\ClassicValuationProcessIncrementor.cs",
+  "SelectedNode": "\\ConsoleApp1\\GameCollection.sln",
   "PreviewInSolutionExplorer": false
 }
