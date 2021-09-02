@@ -7,8 +7,8 @@ using GameCollection.SharedCode.CardGames.Hand.HandBehavior.StartingHandBehavior
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.DiscardingWholeHandBehavior;
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.HandCheckingBehavior;
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.AddingHandBehavior;
-using GameCollection.Games.Poker.PokerHandSorting;
 using GameCollection.Games.Poker.PokerCards;
+using GameCollection.Games.Poker.PokerHandSorting.HandSorting;
 
 namespace GameCollection.Games.Poker.PokerHand
 {

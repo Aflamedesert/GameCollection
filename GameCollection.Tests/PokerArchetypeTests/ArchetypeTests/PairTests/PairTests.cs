@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerArchetypeComparator;
-using GameCollection.Games.Poker.PokerHandArchetypes;
 using GameCollection.Tests.PokerArchetypeTests.FactoryFixture;
-using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeFactories;
 using GameCollection.Tests.DataFactory;
 using Xunit;
+using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes;
+using GameCollection.Games.Poker.PokerHandArchetypes;
 
 namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.PairTests
 {

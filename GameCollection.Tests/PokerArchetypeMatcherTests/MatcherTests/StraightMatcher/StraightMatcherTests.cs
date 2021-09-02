@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Tests.DataFactory;
-using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 using GameCollection.Games.Poker.PokerFactories;
 using Xunit;
+using GameCollection.Games.Poker.PokerArchetypeMatching.PokerArchetypeMatchers;
 
 namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightMatcher
 {

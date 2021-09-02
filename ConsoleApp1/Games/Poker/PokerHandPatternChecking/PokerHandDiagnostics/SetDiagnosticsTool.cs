@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
-using GameCollection.Games.Poker.PokerHandValueIterators;
+using GameCollection.Games.Poker.PokerHandValueIterators.ValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandDiagnostics
 {

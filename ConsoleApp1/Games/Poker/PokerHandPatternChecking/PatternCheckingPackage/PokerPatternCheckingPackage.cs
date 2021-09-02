@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameCollection.Games.Poker.PokerHandPatternChecking.PokerHandPatternCheckers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,4 @@
-﻿using GameCollection.Games.Poker.PokerHandArchetypes;
+﻿using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

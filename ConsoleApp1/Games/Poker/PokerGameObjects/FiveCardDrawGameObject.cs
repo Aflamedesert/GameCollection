@@ -7,10 +7,10 @@ using GameCollection.Games.Poker.PlayingEntities;
 using GameCollection.SharedCode.CardGames.Deck;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerHand;
-using GameCollection.Games.Poker.PokerHandSorting;
 using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.PlayerBetter;
 using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.Betting.GameBetter;
 using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.State;
+using GameCollection.Games.Poker.PokerHandSorting.HandSorting;
 
 namespace GameCollection.Games.Poker.PokerGameObjects
 {

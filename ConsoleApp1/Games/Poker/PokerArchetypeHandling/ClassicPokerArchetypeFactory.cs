@@ -1,12 +1,12 @@
 ﻿using GameCollection.Games.Poker.PokerCards;
-using GameCollection.Games.Poker.PokerHandArchetypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
 using GameCollection.Games.Poker.PokerArchetypeHandling.PokerHandTrimmer;
+using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes;
+using GameCollection.Games.Poker.PokerArchetypeMatching.PokerArchetypeMatchers;
 
 namespace GameCollection.Games.Poker.PokerArchetypeHandling
 {

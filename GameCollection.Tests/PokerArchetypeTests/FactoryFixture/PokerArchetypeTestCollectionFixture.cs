@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerArchetypeComparator;
-using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeFactories;
-using GameCollection.Games.Poker.PokerHandValueIterators.PokerHandValueIteratorFactories;
-using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeFactories.PokerHandArchetypeComponentFactories;
+using GameCollection.Games.Poker.PokerHandValueIterators;
 using Xunit;
+using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypeComponents;
+using GameCollection.Games.Poker.PokerHandArchetypes;
 
 namespace GameCollection.Tests.PokerArchetypeTests.FactoryFixture
 {
