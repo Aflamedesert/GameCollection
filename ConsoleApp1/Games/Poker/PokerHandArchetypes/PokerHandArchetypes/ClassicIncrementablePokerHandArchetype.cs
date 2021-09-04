@@ -19,16 +19,26 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes
 
         IValuationProcessIncrementor incrementor;
 
-        public ClassicIncrementablePokerHandArchetype(IValuationProcessState passedValuationState, IEvaluationBehavior passedEvaluationBehavior, IValuationProcessIncrementor passedValuationIncrementor)
+        string archetypeIdentifier;
+
+        public ClassicIncrementablePokerHandArchetype(IValuationProcessState passedValuationState, IEvaluationBehavior passedEvaluationBehavior, IValuationProcessIncrementor passedValuationIncrementor, 
+            string passedArchetypeIdentifier)
         {
             valuationState = passedValuationState;
             evaluator = passedEvaluationBehavior;
             incrementor = passedValuationIncrementor;
 
+            archetypeIdentifier = passedArchetypeIdentifier;
+
             evaluator.Evaluate();
         }
 
-        public int? getValuation()
+        public string GetArchetypeIdentifier()
+        {
+            return archetypeIdentifier;
+        }
+
+        public int? GetValuation()
         {
             return valuationState.getCurrentHighValue();
         }

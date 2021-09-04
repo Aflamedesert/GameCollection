@@ -59,6 +59,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.ThreeOfAKindTe
 
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void ThreeOfAKindTest_ShouldBeTrue(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
@@ -73,6 +74,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.ThreeOfAKindTe
 
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(NullParameters))]
         public void ThreeOfAKindTest_ShouldBeNull(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
@@ -86,6 +88,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.ThreeOfAKindTe
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(FailedParameters))]
         public void ThreeOfAKindTest_ShouldBeFalse(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {

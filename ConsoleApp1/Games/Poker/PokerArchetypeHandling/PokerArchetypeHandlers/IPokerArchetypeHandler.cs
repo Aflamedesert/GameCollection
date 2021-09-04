@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes;
 
-namespace GameCollection.Games.Poker.PokerArchetypeHandling
+namespace GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeHandlers
 {
-    public interface IPokerArchetypeFactory
+    public interface IPokerArchetypeHandler
     {
         bool isArchetypeMatch(List<IPokerCard> passedCards);
-        IPokerHandArchetype getArchetypeInstance(List<IPokerCard> passedCards);
+        IPokerHandArchetype GetArchetypeInstance(List<IPokerCard> passedCards);
     }
 }

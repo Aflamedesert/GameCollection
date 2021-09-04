@@ -8,6 +8,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes
 {
     public interface IPokerHandArchetype
     {
-        int? getValuation();
+        string GetArchetypeIdentifier(); 
+        int? GetValuation();
     }
 }

@@ -14,16 +14,28 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes
 
         IPokerHandValueIterator valuationProcess;
 
+        string archetypeIdentifier;
+
         bool hasBeenEvaluated;
 
-        public ClassicNonIncrementablePokerHandArchetype(List<IPokerCard> passedCards, IPokerHandValueIterator passedValueIterator)
+        public ClassicNonIncrementablePokerHandArchetype(List<IPokerCard> passedCards, IPokerHandValueIterator passedValueIterator, 
+            string passedArchetypeIdentifier)
         {
             cards = passedCards;
+
             valuationProcess = passedValueIterator;
+
+            archetypeIdentifier = passedArchetypeIdentifier;
+
             hasBeenEvaluated = false;
         }
 
-        public int? getValuation()
+        public string GetArchetypeIdentifier()
+        {
+            return archetypeIdentifier;
+        }
+
+        public int? GetValuation()
         {
             if (hasBeenEvaluated == false)
             {

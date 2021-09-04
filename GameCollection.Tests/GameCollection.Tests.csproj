@@ -20,4 +20,8 @@
     <ProjectReference Include="..\ConsoleApp1\GameCollection.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="PokerArchetypeMatcherTests\MatcherTests\TwoPairMatcher\" />
+  </ItemGroup>
+
 </Project>

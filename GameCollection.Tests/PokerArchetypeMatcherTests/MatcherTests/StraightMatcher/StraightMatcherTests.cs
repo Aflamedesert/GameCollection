@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Tests.DataFactory;
-using GameCollection.Games.Poker.PokerFactories;
+using GameCollection.Tests.PokerArchetypeMatcherTests.FactoryFixture;
 using Xunit;
 using GameCollection.Games.Poker.PokerArchetypeMatching.PokerArchetypeMatchers;
 
@@ -37,29 +37,18 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightM
         }
     }
 
-    public class TestSetup
-    {
-        public IPokerArchetypeMatcher matcher { get; }
-
-        public TestSetup()
-        {
-            ClassicPokerFactory factory = new ClassicPokerFactory();
-            //matcher = new PokerStraightMatcher(factory.GetStrictArchetypeHelperInstance());
-            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
-                factory.GetRoyalFlushHelperInstance(), isStraight: true);
-        }
-    }
-
-    public class StraightMatcherTests : IClassFixture<TestSetup>
+    [Collection("PokerArchetypeMatcherTests")]
+    public class StraightMatcherTests
     {
         IPokerArchetypeMatcher matcher;
 
-        public StraightMatcherTests(TestSetup setup)
+        public StraightMatcherTests(PokerArchetypeMatcherTestCollectionFixture fixture)
         {
-            matcher = setup.matcher;
+            matcher = fixture.factory.GetStraightMatcherInstance();
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void isArchetypeMatch_ShouldMatch(List<IPokerCard> passedTestCards)
         {
@@ -68,6 +57,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightM
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(FailedParameters))]
         public void isArchetypeMatch_ShouldNotMatch(List<IPokerCard> passedTestCards)
         {

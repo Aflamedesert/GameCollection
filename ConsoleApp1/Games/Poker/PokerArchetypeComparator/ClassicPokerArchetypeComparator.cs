@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GameCollection.SharedCode.Utilities.Exceptions;
 
 namespace GameCollection.Games.Poker.PokerArchetypeComparator
 {
@@ -11,9 +12,18 @@ namespace GameCollection.Games.Poker.PokerArchetypeComparator
     {
         public bool? isFirstBetterThanSecond<T>(T passedFirstArchetype, T passedSecondArchetype) where T :  IPokerHandArchetype
         {
-            int? firstValue = passedFirstArchetype.getValuation();
+            string firstArchetypeIdentifier = passedFirstArchetype.GetArchetypeIdentifier();
 
-            int? secondValue = passedSecondArchetype.getValuation();
+            string secondArchetypeIdentifier = passedSecondArchetype.GetArchetypeIdentifier();
+
+            if(firstArchetypeIdentifier != secondArchetypeIdentifier)
+            {
+                throw new UnintendedArgumentSetupException("ClassicPokerArchetypeComparator", "The two passedArchetypes must be of the same type");
+            }
+
+            int? firstValue = passedFirstArchetype.GetValuation();
+
+            int? secondValue = passedSecondArchetype.GetValuation();
 
             while ((firstValue != null) && (secondValue != null))
             {
@@ -35,9 +45,9 @@ namespace GameCollection.Games.Poker.PokerArchetypeComparator
                         (passedSecondArchetype as IPokerIncrementable).Increment();
                     }
 
-                    firstValue = passedFirstArchetype.getValuation();
+                    firstValue = passedFirstArchetype.GetValuation();
 
-                    secondValue = passedSecondArchetype.getValuation();
+                    secondValue = passedSecondArchetype.GetValuation();
                 }
             } 
 

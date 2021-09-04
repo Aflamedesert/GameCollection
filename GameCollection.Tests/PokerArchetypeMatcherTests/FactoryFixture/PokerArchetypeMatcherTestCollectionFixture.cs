@@ -22,7 +22,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.FactoryFixture
 
             IPokerHandSorterFactory sorterFactory = new ClassicPokerHandSorterFactory(valueIteratorFactory);
 
-            IPokerPatternCheckingFactory patternFactory = new ClassicPokerPatternCheckingFactory(sorterFactory);
+            IPokerPatternCheckingFactory patternFactory = new ClassicPokerPatternCheckingFactory(sorterFactory, valueIteratorFactory);
 
             IMatcherHelperFactory matcherHelperFactory = new ClassicMatcherHelperFactory(valueIteratorFactory, patternFactory);
 
@@ -30,7 +30,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.FactoryFixture
         }
     }
 
-    [CollectionDefinition("PokerMatcherArchetypeTests")]
+    [CollectionDefinition("PokerArchetypeMatcherTests")]
     public class PokerArchetypeTestCollection : ICollectionFixture<PokerArchetypeMatcherTestCollectionFixture>
     {
         //empty... used as a place to initiate the collection

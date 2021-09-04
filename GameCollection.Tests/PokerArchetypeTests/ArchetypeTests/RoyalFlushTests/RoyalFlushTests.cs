@@ -59,6 +59,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.RoyalFlushTest
 
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void RoyalFlushTest_ShouldBeTrue(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
@@ -73,6 +74,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.RoyalFlushTest
 
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(NullParameters))]
         public void RoyalFlushTest_ShouldBeNull(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
@@ -86,6 +88,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.RoyalFlushTest
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(FailedParameters))]
         public void RoyalFlushTest_ShouldBeFalse(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {

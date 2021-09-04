@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerHandSorting;
+using GameCollection.Games.Poker.PokerHandValueIterators;
 
 namespace GameCollection.Games.Poker.PokerHandPatternChecking
 {
@@ -14,9 +15,13 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking
     {
         IPokerHandSorterFactory handSorterFactory;
 
-        public ClassicPokerPatternCheckingFactory(IPokerHandSorterFactory passedHandSorterFactory)
+        IPokerHandValueIteratorFactory valueIteratorFactory;
+
+        public ClassicPokerPatternCheckingFactory(IPokerHandSorterFactory passedHandSorterFactory, IPokerHandValueIteratorFactory passedValueIteratorFactory)
         {
             handSorterFactory = passedHandSorterFactory;
+
+            valueIteratorFactory = passedValueIteratorFactory;
         }
 
         public PokerPatternCheckingPackage GetPatternCheckingPackageInstance()
@@ -41,12 +46,12 @@ namespace GameCollection.Games.Poker.PokerHandPatternChecking
 
         public ISetDataMatcher GetSetDataMatcherInstance()
         {
-            throw new NotImplementedException();
+            return new StrictSetDataMatcher();
         }
 
         public ISetDiagnosticsTool GetSetDiagnosticsToolInstance()
         {
-            throw new NotImplementedException();
+            return new SetDiagnosticsTool(valueIteratorFactory.GetHighKindValueIteratorInstance());
         }
     }
 }

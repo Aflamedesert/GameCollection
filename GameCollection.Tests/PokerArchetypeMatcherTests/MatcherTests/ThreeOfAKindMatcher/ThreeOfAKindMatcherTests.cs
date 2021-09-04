@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Tests.DataFactory;
-using GameCollection.Games.Poker.PokerFactories;
+using GameCollection.Tests.PokerArchetypeMatcherTests.FactoryFixture;
 using Xunit;
 using GameCollection.Games.Poker.PokerArchetypeMatching.PokerArchetypeMatchers;
 
@@ -37,34 +37,18 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.ThreeOfAK
         }
     }
 
-    public class TestSetup
-    {
-        public IPokerArchetypeMatcher matcher { get; }
-
-        public TestSetup()
-        {
-            List<int> targetSet = new List<int>()
-            {
-                3
-            };
-
-            ClassicPokerFactory factory = new ClassicPokerFactory();
-            //matcher = new PokerThreeOfAKindMatcher(factory.GetStrictArchetypeHelperInstance());
-            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
-                factory.GetRoyalFlushHelperInstance(), setTarget: targetSet);
-        }
-    }
-
-    public class ThreeOfAKindMatcherTests : IClassFixture<TestSetup>
+    [Collection("PokerArchetypeMatcherTests")]
+    public class ThreeOfAKindMatcherTests
     {
         IPokerArchetypeMatcher matcher;
 
-        public ThreeOfAKindMatcherTests(TestSetup setup)
+        public ThreeOfAKindMatcherTests(PokerArchetypeMatcherTestCollectionFixture fixture)
         {
-            matcher = setup.matcher;
+            matcher = fixture.factory.GetThreeOfAKindMatcherInstance();
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void isArchetypeMatch_ShouldMatch(List<IPokerCard> passedTestCards)
         {
@@ -73,6 +57,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.ThreeOfAK
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(FailedParameters))]
         public void isArchetypeMatch_ShouldNotMatch(List<IPokerCard> passedTestCards)
         {

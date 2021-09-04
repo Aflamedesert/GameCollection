@@ -13,11 +13,15 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes
 
         bool hasBeenEvaluated;
 
+        string archetypeIdentifier;
+
         public PokerRoyalFlushArchetype(List<IPokerCard> passedCards, List<string> passedOrderedSuitRankings)
         {
             string handSuit = findSuitOfHand(passedCards);
 
             currentValue = findSuitRank(handSuit, passedOrderedSuitRankings);
+
+            archetypeIdentifier = "RoyalFlush";
 
             hasBeenEvaluated = false;
         }
@@ -61,7 +65,7 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes
             return rank;
         }
 
-        public int? getValuation()
+        public int? GetValuation()
         {
             if (hasBeenEvaluated == false)
             {
@@ -72,6 +76,11 @@ namespace GameCollection.Games.Poker.PokerHandArchetypes.PokerHandArchetypes
             {
                 return null;
             }
+        }
+
+        public string GetArchetypeIdentifier()
+        {
+            return archetypeIdentifier;
         }
     }
 }

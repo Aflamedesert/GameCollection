@@ -59,6 +59,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.PairTests
 
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void PairTest_ShouldBeTrue(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
@@ -73,6 +74,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.PairTests
 
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(NullParameters))]
         public void PairTest_ShouldBeNull(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {
@@ -86,6 +88,7 @@ namespace GameCollection.Tests.PokerArchetypeTests.ArchetypeTests.PairTests
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeTests")]
         [ClassData(typeof(FailedParameters))]
         public void PairTest_ShouldBeFalse(List<IPokerCard> firstHand, List<IPokerCard> secondHand)
         {

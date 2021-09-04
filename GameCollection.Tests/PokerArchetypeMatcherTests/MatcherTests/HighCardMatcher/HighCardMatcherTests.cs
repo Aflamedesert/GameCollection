@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Tests.DataFactory;
-using GameCollection.Games.Poker.PokerFactories;
+using GameCollection.Tests.PokerArchetypeMatcherTests.FactoryFixture;
 using Xunit;
 using GameCollection.Games.Poker.PokerArchetypeMatching.PokerArchetypeMatchers;
 
@@ -37,29 +37,18 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.HighCardM
         }
     }
 
-    public class HighCardTestSetup
-    {
-        public IPokerArchetypeMatcher matcher { get; }
-
-        public HighCardTestSetup()
-        {
-            ClassicPokerFactory factory = new ClassicPokerFactory();
-            //matcher = new PokerHighCardMatcher(factory.GetStrictArchetypeHelperInstance());
-            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
-                factory.GetRoyalFlushHelperInstance(), false, false, false);
-        }
-    }
-
-    public class HighCardMatcherTests : IClassFixture<HighCardTestSetup>
+    [Collection("PokerArchetypeMatcherTests")]
+    public class HighCardMatcherTests
     {
         IPokerArchetypeMatcher matcher;
 
-        public HighCardMatcherTests(HighCardTestSetup testSetup)
+        public HighCardMatcherTests(PokerArchetypeMatcherTestCollectionFixture fixture)
         {
-            matcher = testSetup.matcher;
+            matcher = fixture.factory.GetHighCardMatcherInstance();
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void isArchetypeMatch_ShouldMatch(List<IPokerCard> passedTestCards)
         {
@@ -68,6 +57,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.HighCardM
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(FailedParameters))]
         public void isArchetypeMatch_ShouldNotMatch(List<IPokerCard> passedTestCards)
         {

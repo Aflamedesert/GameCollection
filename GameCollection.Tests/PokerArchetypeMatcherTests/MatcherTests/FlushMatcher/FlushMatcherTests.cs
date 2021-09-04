@@ -37,29 +37,18 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.FlushMatc
         }
     }
 
-    public class TestSetup
-    {
-        public IPokerArchetypeMatcher matcher { get; }
-
-        public TestSetup()
-        {
-            ClassicPokerFactory factory = new ClassicPokerFactory();
-            //matcher = new PokerFlushMatcher(factory.GetStrictArchetypeHelperInstance());
-            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
-                factory.GetRoyalFlushHelperInstance(), true);
-        }
-    }
-
-    public class FlushMatcherTests : IClassFixture<TestSetup>
+    [Collection("PokerArchetypeMatcherTests")]
+    public class FlushMatcherTests
     {
         IPokerArchetypeMatcher matcher;
 
-        public FlushMatcherTests(TestSetup setup)
+        public FlushMatcherTests(PokerArchetypeMatcherTestCollectionFixture fixture)
         {
-            matcher = setup.matcher;
+            matcher = fixture.factory.GetFlushMatcherInstance();
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void isArchetypeMatch_ShouldMatch(List<IPokerCard> passedTestCards)
         {
@@ -68,6 +57,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.FlushMatc
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(FailedParameters))]
         public void isArchetypeMatch_ShouldNotMatch(List<IPokerCard> passedTestCards)
         {

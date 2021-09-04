@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PokerFactories;
-using GameCollection.Games.Poker.PokerArchetypeHandling;
-using GameCollection.Games.Poker.PokerArchetypeHandling.PokerArchetypeMatchers;
-using GameCollection.Games.Poker.PokerHandPatternChecking;
 using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Tests.DataFactory

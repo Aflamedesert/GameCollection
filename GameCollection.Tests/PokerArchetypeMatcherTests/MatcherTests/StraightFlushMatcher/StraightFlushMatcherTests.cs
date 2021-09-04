@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Tests.DataFactory;
-using GameCollection.Games.Poker.PokerFactories;
+using GameCollection.Tests.PokerArchetypeMatcherTests.FactoryFixture;
 using Xunit;
 using GameCollection.Games.Poker.PokerArchetypeMatching.PokerArchetypeMatchers;
 
@@ -37,29 +37,18 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightF
         }
     }
 
-    public class TestSetup
-    {
-        public IPokerArchetypeMatcher matcher { get; }
-
-        public TestSetup()
-        {
-            ClassicPokerFactory factory = new ClassicPokerFactory();
-            //matcher = new PokerStraightFlushMatcher(factory.GetFiveCardStraightFlushHelperInstance(), factory.GetHighCardIteratorInstance());
-            matcher = new ClassicPokerArchetypeMatcher(factory.GetStrictArchetypeHelperInstance(), factory.GetFiveCardStraightFlushHelperInstance(),
-                factory.GetRoyalFlushHelperInstance(), true, true);
-        }
-    }
-
-    public class StraightFlushMatcherTests : IClassFixture<TestSetup>
+    [Collection("PokerArchetypeMatcherTests")]
+    public class StraightFlushMatcherTests
     {
         IPokerArchetypeMatcher matcher;
 
-        public StraightFlushMatcherTests(TestSetup setup)
+        public StraightFlushMatcherTests(PokerArchetypeMatcherTestCollectionFixture fixture)
         {
-            matcher = setup.matcher;
+            matcher = fixture.factory.GetStraightFlushMatcherInstance();
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(SuccessfulParameters))]
         public void isArchetypeMatch_ShouldMatch(List<IPokerCard> passedTestCards)
         {
@@ -68,6 +57,7 @@ namespace GameCollection.Tests.PokerArchetypeMatcherTests.MatcherTests.StraightF
         }
 
         [Theory]
+        [Trait("Category", "PokerArchetypeMatcherTests")]
         [ClassData(typeof(FailedParameters))]
         public void isArchetypeMatch_ShouldNotMatch(List<IPokerCard> passedTestCards)
         {
