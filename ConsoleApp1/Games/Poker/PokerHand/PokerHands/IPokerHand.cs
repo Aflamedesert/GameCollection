@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 
-namespace GameCollection.Games.Poker.PokerHand
+namespace GameCollection.Games.Poker.PokerHand.PokerHands
 {
     public interface IPokerHand
     {

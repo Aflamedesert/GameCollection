@@ -4,13 +4,13 @@
     "\\ConsoleApp1",
     "\\ConsoleApp1\\Games",
     "\\ConsoleApp1\\Games\\Poker",
+    "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects",
+    "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\PokerPlayerGameState",
     "\\GameCollection.Tests",
-    "\\GameCollection.Tests\\PokerArchetypeMatcherTests",
-    "\\GameCollection.Tests\\PokerArchetypeMatcherTests\\FactoryFixture",
     "\\GameCollection.Tests\\PokerArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests\\HighCardTests"
   ],
-  "SelectedNode": "\\GameCollection.Tests\\PokerArchetypeMatcherTests\\FactoryFixture\\PokerArchetypeMatcherTestCollectionFixture.cs",
+  "SelectedNode": "\\ConsoleApp1\\GameCollection.sln",
   "PreviewInSolutionExplorer": false
 }

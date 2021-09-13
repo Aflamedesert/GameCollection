@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PlayingEntities;
 
-namespace GameCollection.Games.Poker.PokerGameObjects
+namespace GameCollection.Games.Poker.PokerGameObjects.GameObjects
 {
     public interface IPokerGameObject
     {
         void Play();
-        void LinkPlayerToStateObject(List<IPlayingEntity> passedPlayers);
-        void LinkPlayerToStateObject(IPlayingEntity passedPlayer);
     }
 }

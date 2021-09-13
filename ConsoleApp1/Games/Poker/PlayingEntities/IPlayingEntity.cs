@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerHandArchetypes;
-using GameCollection.Games.Poker.PokerGameObjects.PlayerHandling.State;
+using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState;
 
 namespace GameCollection.Games.Poker.PlayingEntities
 {
     public interface IPlayingEntity
     {
-        bool HasStateObject();
-        void SetStateObject(IPlayerState passedPlayerStateObject);
+        IPlayerGameInterface GetGameInterface();
+        string GetName();
+        int GetChipAmount();
+        void SetChipAmount(int passedChipAmount);
         void PlayTurn();
+        void Bet();
     }
 }

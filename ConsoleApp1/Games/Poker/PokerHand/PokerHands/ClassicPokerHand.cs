@@ -8,9 +8,10 @@ using GameCollection.SharedCode.CardGames.Hand.HandBehavior.DiscardingWholeHandB
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.HandCheckingBehavior;
 using GameCollection.SharedCode.CardGames.Hand.HandBehavior.AddingHandBehavior;
 using GameCollection.Games.Poker.PokerCards;
+using GameCollection.SharedCode.CardGames.Card;
 using GameCollection.Games.Poker.PokerHandSorting.HandSorting;
 
-namespace GameCollection.Games.Poker.PokerHand
+namespace GameCollection.Games.Poker.PokerHand.PokerHands
 {
     public class ClassicPokerHand : IPokerHand
     {
@@ -31,6 +32,8 @@ namespace GameCollection.Games.Poker.PokerHand
             hand = startingHandBehavior.GetStartingHand();
 
             handDiscarder = new ClassicHandEmptyingBehavior<IPokerCard>(hand);
+
+            handChecker = new ClassicHandCheckingBehavior(new List<ICard>(hand));
 
             handAdder = new ClassicAddingHandBehavior<IPokerCard>(hand);
 
@@ -78,13 +81,13 @@ namespace GameCollection.Games.Poker.PokerHand
             }
             else
             {
-                return null;
+                throw new ArgumentException("Hand does not contain card to be discarded", "ClassicPokerHand");
             }
         }
 
         public IPokerCard Discard(string passedCardType, string passedCardSuit)
         {
-            if(handChecker.ContainsCard(passedCardType, passedCardSuit))
+            if (handChecker.ContainsCard(passedCardType, passedCardSuit))
             {
                 IPokerCard convertedCard = RemoveCardFromHand(passedCardType, passedCardSuit);
 
@@ -92,7 +95,7 @@ namespace GameCollection.Games.Poker.PokerHand
             }
             else
             {
-                return null;
+                throw new ArgumentException("Hand does not contain card to be discarded", "ClassicPokerHand");
             }
         }
 
@@ -100,11 +103,11 @@ namespace GameCollection.Games.Poker.PokerHand
         {
             int numberOfCards = hand.Count;
 
-            for(int i = 0; i < numberOfCards; i++)
+            for (int i = 0; i < numberOfCards; i++)
             {
                 IPokerCard currentCard = hand[i];
 
-                if(CardIsMatch(currentCard, passedCardType, passedCardSuit))
+                if (CardIsMatch(currentCard, passedCardType, passedCardSuit))
                 {
                     hand.RemoveAt(i);
                     return currentCard;
@@ -120,9 +123,9 @@ namespace GameCollection.Games.Poker.PokerHand
 
             string testCardSuit = passedCard.getSuit();
 
-            if(testCardType == passedCardType)
+            if (testCardType == passedCardType)
             {
-                if(testCardSuit == passedCardSuit)
+                if (testCardSuit == passedCardSuit)
                 {
                     return true;
                 }
