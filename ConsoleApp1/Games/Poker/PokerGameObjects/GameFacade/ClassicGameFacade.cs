@@ -4,21 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PlayingEntities;
-using GameCollection.Games.Poker.PokerGameObjects.PokerTurnSystem;
 using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState;
 using GameCollection.SharedCode.CardGames.Deck;
 using GameCollection.Games.Poker.PokerCards;
 using GameCollection.Games.Poker.PokerGameObjects.GameBetting;
 using GameCollection.Games.Poker.PokerHand.PokerHands;
 using GameCollection.Games.Poker.PokerHand;
+using GameCollection.Games.Poker.PokerGameEvaluation;
+using GameCollection.Games.Poker.PokerGameObjects.PokerGameCore;
+using GameCollection.Games.Poker.PokerGameObjects.StandardMessages;
 
-namespace GameCollection.Games.Poker.PokerGameObjects.GameObjects
+namespace GameCollection.Games.Poker.PokerGameObjects.GameFacade
 {
     public delegate IHumanPlayerGameInterface HumanPlayerGameStateFactoryMethod();
 
     public delegate IArtificialPlayerGameInterface ArtificialPlayerGameStateFactoryMethod();
 
-    public class FiveCardDrawGameObject : IPokerGameObject
+    public class ClassicGameFacade : IPokerGameFacade
     {
         List<IPlayingEntity> players;
 
@@ -26,12 +28,18 @@ namespace GameCollection.Games.Poker.PokerGameObjects.GameObjects
 
         IPokerHandFactory handFactory;
 
-        IPokerTurnSystem turnSystem;
+        IPokerGameCore gameCore;
 
         IPokerGameBettingSystem gameBettingSystem;
 
-        public FiveCardDrawGameObject(List<IPlayingEntity> passedPlayers, 
-            IDeck<IPokerCard> passedPokerDeck, IPokerHandFactory passedPokerHandFactory, IPokerTurnSystem passedTurnSystem, IPokerGameBettingSystem passedGameBettingSystem)
+        IPokerGameEvaluator gameEvaluator;
+
+        IGameFacadeMessager messager;
+
+        public ClassicGameFacade(List<IPlayingEntity> passedPlayers,
+            IDeck<IPokerCard> passedPokerDeck, IPokerHandFactory passedPokerHandFactory,
+            IPokerGameCore passedGameCore, IPokerGameBettingSystem passedGameBettingSystem,
+            IPokerGameEvaluator passedGameEvaluator, IGameFacadeMessager passedMessager)
         {
             players = passedPlayers;
 
@@ -39,39 +47,43 @@ namespace GameCollection.Games.Poker.PokerGameObjects.GameObjects
 
             handFactory = passedPokerHandFactory;
 
-            turnSystem = passedTurnSystem;
+            gameCore = passedGameCore;
 
             gameBettingSystem = passedGameBettingSystem;
+
+            gameEvaluator = passedGameEvaluator;
+
+            messager = passedMessager;
 
             SetupPlayerGameStates(passedPlayers, CreateHumanGameInterface, CreateArtificialGameInterface); // temporary solution, probably gonna change this later
         }
 
-        private void SetupPlayerGameStates(List<IPlayingEntity> passedPlayers, 
-            HumanPlayerGameStateFactoryMethod humanFactoryMethod, 
+        private void SetupPlayerGameStates(List<IPlayingEntity> passedPlayers,
+            HumanPlayerGameStateFactoryMethod humanFactoryMethod,
             ArtificialPlayerGameStateFactoryMethod artificialFactoryMethod)
-            //temporary solution, probably gonna change this later
+        //temporary solution, probably gonna change this later
         {
-            if(passedPlayers == null)
+            if (passedPlayers == null)
             {
                 throw new ArgumentNullException("passedPlayers", "passedPlayers cannot equal null");
             }
 
             int numberOfPlayers = passedPlayers.Count;
 
-            if(numberOfPlayers < 1)
+            if (numberOfPlayers < 1)
             {
                 throw new ArgumentOutOfRangeException("passedPlayers", "passedPlayers must have at least one element");
             }
 
-            foreach(IPlayingEntity player in passedPlayers)
+            foreach (IPlayingEntity player in passedPlayers)
             {
-                if(player is IHumanPlayer)
+                if (player is IHumanPlayer)
                 {
                     IHumanPlayer humanPlayer = player as IHumanPlayer;
 
                     humanPlayer.SetGameInterface(humanFactoryMethod());
                 }
-                else if(player is IArtificialPlayer)
+                else if (player is IArtificialPlayer)
                 {
                     IArtificialPlayer artificialPlayer = player as IArtificialPlayer;
 
@@ -98,18 +110,19 @@ namespace GameCollection.Games.Poker.PokerGameObjects.GameObjects
             return new FiveCardDrawArtificialPlayerGameInterface(deck, hand, better);
         }
 
-        public void Play()
+        public IEndGameOption Play()
         {
-            const int numberOfRounds = 2;
+            messager.WelcomeMessage();
 
             AnteUp(players);
 
-            for(int i = 0; i < numberOfRounds; i++)
-            {
-                List<IPlayingEntity> remainingPlayers = StartBetting(players);
+            List<IPlayingEntity> possibleWinners = PlayGame();
 
-                PlayTurns(players);
-            }
+            HandleResults(possibleWinners);
+
+            IEndGameOption endGameOption = messager.EndGameOptionsMessage();
+
+            return endGameOption;
         }
 
         private void AnteUp(List<IPlayingEntity> passedPlayers)
@@ -117,14 +130,20 @@ namespace GameCollection.Games.Poker.PokerGameObjects.GameObjects
             gameBettingSystem.Ante(passedPlayers);
         }
 
-        private void StartBetting(List<IPlayingEntity> passedPlayers)
+        private List<IPlayingEntity> PlayGame()
         {
-            gameBettingSystem.Bet(passedPlayers);
+            return gameCore.PlayGame(players);
         }
 
-        private void PlayTurns(List<IPlayingEntity> passedPlayers)
+        private void HandleResults(List<IPlayingEntity> passedPlayers)
         {
-            turnSystem.PlayTurns(passedPlayers);
+            IPlayingEntity winner = gameEvaluator.GetWinner(passedPlayers);
+
+            int wonChips = gameBettingSystem.EmptyPot();
+
+            string winnerName = winner.GetName();
+
+            messager.WinnerMessage(winnerName, wonChips);
         }
     }
 }

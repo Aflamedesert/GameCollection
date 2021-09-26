@@ -18,6 +18,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
 
         IHumanPlayerBetter playerBetter;
 
+        bool playerHasFolded;
+
         public FiveCardDrawHumanPlayerGameInterface(IDeck<IPokerCard> passedPokerDeck, IPokerHand passedPokerHand, IHumanPlayerBetter passedHumanPlayerBetter)
         {
             deck = passedPokerDeck;
@@ -25,6 +27,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
             hand = passedPokerHand;
 
             playerBetter = passedHumanPlayerBetter;
+
+            playerHasFolded = false;
         }
 
         ~FiveCardDrawHumanPlayerGameInterface()
@@ -77,7 +81,17 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
 
         public void Bet()
         {
-            playerBetter.OpenBettingMenu();
+            bool result = playerBetter.OpenBettingMenu();
+
+            if(result == true)
+            {
+                playerHasFolded = true;
+            }
+        }
+
+        public bool hasFolded()
+        {
+            return playerHasFolded;
         }
     }
 }

@@ -9,6 +9,6 @@ namespace GameCollection.Games.Poker.PokerGameEvaluation
 {
     public interface IPokerGameEvaluator
     {
-        IPlayingEntity GetWinner();
+        IPlayingEntity GetWinner(List<IPlayingEntity> passedPlayers);
     }
 }

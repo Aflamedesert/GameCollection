@@ -8,6 +8,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.GameBetting
 {
     public interface IArtificialPlayerBetter
     {
-        void GenerateBet(string passedHandArchetype);
+        bool GenerateBet(string passedHandArchetype);
     }
 }

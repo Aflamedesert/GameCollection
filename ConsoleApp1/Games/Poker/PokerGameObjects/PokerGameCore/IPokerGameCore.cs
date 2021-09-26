@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PlayingEntities;
 
-namespace GameCollection.Games.Poker.PokerGameObjects.PokerTurnSystem
+namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
 {
-    public interface IPokerTurnSystem
+    public interface IPokerGameCore
     {
-        void PlayTurns(List<IPlayingEntity> passedPlayers);
+        List<IPlayingEntity> PlayGame(List<IPlayingEntity> passedPlayers);
     }
 }

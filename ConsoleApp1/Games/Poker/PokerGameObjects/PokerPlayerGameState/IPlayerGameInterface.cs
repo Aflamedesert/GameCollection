@@ -10,5 +10,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
     public interface IPlayerGameInterface
     {
         List<IPokerCard> GetCardsInHand();
+        bool hasFolded();
     }
 }

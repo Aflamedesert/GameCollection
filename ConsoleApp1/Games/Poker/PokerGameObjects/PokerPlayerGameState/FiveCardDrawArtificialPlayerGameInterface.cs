@@ -18,6 +18,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
 
         IArtificialPlayerBetter better;
 
+        bool playerHasFolded;
+
         public FiveCardDrawArtificialPlayerGameInterface(IDeck<IPokerCard> passedPokerDeck, IPokerHand passedPokerHand, IArtificialPlayerBetter passedArtificialPlayerBetter)
         {
             deck = passedPokerDeck;
@@ -25,6 +27,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
             hand = passedPokerHand;
 
             better = passedArtificialPlayerBetter;
+
+            playerHasFolded = false;
         }
 
         ~FiveCardDrawArtificialPlayerGameInterface()
@@ -77,7 +81,18 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
 
         public void Bet(string passedHandArchetype)
         {
-            better.GenerateBet(passedHandArchetype);
+            bool hasFolded = better.GenerateBet(passedHandArchetype);
+
+            if(hasFolded == true)
+            {
+                playerHasFolded = true;
+            }
+        }
+
+        // -- temporary -- //
+        public bool hasFolded()
+        {
+            return playerHasFolded;
         }
     }
 }

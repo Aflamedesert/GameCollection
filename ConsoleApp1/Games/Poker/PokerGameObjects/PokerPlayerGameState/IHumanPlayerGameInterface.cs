@@ -9,5 +9,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerGameState
     public interface IHumanPlayerGameInterface : IPlayerGameInterface
     {
         //interface used to group the Human PlayerGameInterface classes, and to distinguish them from the AI PlayerGameInterface classes
+        void ShowOptionsDialog();
     }
 }

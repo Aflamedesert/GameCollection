@@ -8,6 +8,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.GameBetting
 {
     public interface IHumanPlayerBetter
     {
-        void OpenBettingMenu();
+        bool OpenBettingMenu();
     }
 }
