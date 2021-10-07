@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PlayingEntities;
+using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerDisplay
 {
-    public interface IPokerDisplay
+    public interface IPokerDisplay<T>
     {
-        void SetPlayers(List<IPlayingEntity> passedPlayers);
-        void StartDisplay();
+        void DisplayFold(string passedPlayerName);
+        void UpdatePot();
         void UpdateDisplay();
-        void UpdatePot(int numberOfChipsInPot);
-        void PlayerHasQuit(IPlayingEntity passedPlayer);
-        void PlayerHasFolded(IPlayingEntity passedPlayer);
+        void RevealAllPlayers();
     }
 }

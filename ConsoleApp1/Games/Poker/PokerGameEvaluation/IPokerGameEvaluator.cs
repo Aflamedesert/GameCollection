@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PlayingEntities;
+using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface;
 
 namespace GameCollection.Games.Poker.PokerGameEvaluation
 {
-    public interface IPokerGameEvaluator
+    public interface IPokerGameEvaluator<T> where T : IGetCardsInHandBehavior
     {
-        IPlayingEntity GetWinner(List<IPlayingEntity> passedPlayers);
+        List<T> GetWinner(List<T> passedPlayers);
     }
 }

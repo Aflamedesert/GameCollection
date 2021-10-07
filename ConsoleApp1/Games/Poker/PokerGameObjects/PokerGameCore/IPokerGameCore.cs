@@ -7,8 +7,8 @@ using GameCollection.Games.Poker.PlayingEntities;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
 {
-    public interface IPokerGameCore
+    public interface IPokerGameCore<T>
     {
-        List<IPlayingEntity> PlayGame(List<IPlayingEntity> passedPlayers);
+        void StartGame();
     }
 }

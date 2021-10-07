@@ -4,13 +4,13 @@
     "\\ConsoleApp1",
     "\\ConsoleApp1\\Games",
     "\\ConsoleApp1\\Games\\Poker",
-    "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects",
-    "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\GameBetting",
+    "\\ConsoleApp1\\Games\\Poker\\PokerHand",
+    "\\ConsoleApp1\\Games\\Poker\\PokerHand\\PokerHands",
     "\\GameCollection.Tests",
     "\\GameCollection.Tests\\PokerArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests\\HighCardTests"
   ],
-  "SelectedNode": "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\GameBetting\\IPokerGameBettingSystem.cs",
+  "SelectedNode": "\\ConsoleApp1\\GameCollection.sln",
   "PreviewInSolutionExplorer": false
 }

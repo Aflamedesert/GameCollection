@@ -9,13 +9,14 @@ namespace GameCollection.Games.Poker.PokerHand.PokerHands
 {
     public interface IPokerHand
     {
-
-        public void Add(IPokerCard passedCard);
-        public void Add(List<IPokerCard> passedCards);
-        public List<IPokerCard> GetPokerHand();
-        public void SortHand();
-        public List<IPokerCard> DiscardHand();
-        public IPokerCard Discard(IPokerCard passedCard);
-        public IPokerCard Discard(string passedCardType, string passedCardSuit);
+        List<IPokerCard> GetPokerHand();
+        void SortHand();
+        void Add(IPokerCard passedCard);
+        void Add(List<IPokerCard> passedCards);
+        IPokerCard Remove(IPokerCard passedCard);
+        List<IPokerCard> Remove(List<IPokerCard> passedCards);
+        IPokerCard Remove(string passedCardType, string passedCardSuit);
+        List<IPokerCard> Remove(List<(string cardType, string cardSuit)> passedCardSignatures);
+        List<IPokerCard> EmptyHand();
     }
 }

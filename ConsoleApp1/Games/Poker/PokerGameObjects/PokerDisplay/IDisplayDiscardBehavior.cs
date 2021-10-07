@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GameCollection.Games.Poker.PlayingEntities;
+using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerDisplay
 {
     public interface IDisplayDiscardBehavior
     {
-        void DisplayDiscard(IPlayingEntity passedDiscardingPlayer, int numberOfDiscardedCards);
+        void DisplayDiscard(string passedPlayerName, List<IPokerCard> passedDiscardedCards);
     }
 }
