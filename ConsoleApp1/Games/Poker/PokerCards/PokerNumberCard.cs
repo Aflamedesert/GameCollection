@@ -7,16 +7,32 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCards
 {
-    public class PokerNumberCard : NumberCard, IPokerCard
+    public class PokerNumberCard : IPokerCard
     {
-        public PokerNumberCard(int passedCardNumber, string passedSuit, string[] passedCardDisplay) : base(passedCardNumber, passedSuit, passedCardDisplay)
+        int cardNumber;
+
+        string cardSuit;
+
+        public PokerNumberCard(int passedCardNumber, string passedSuit)
         {
-            //runs NumberCard constructor
+            cardNumber = passedCardNumber;
+
+            cardSuit = passedSuit;
         }
 
         public int getIntValue()
         {
             return cardNumber;
+        }
+
+        public string getSuit()
+        {
+            return cardSuit;
+        }
+
+        public string getType()
+        {
+            return cardNumber.ToString();
         }
     }
 }

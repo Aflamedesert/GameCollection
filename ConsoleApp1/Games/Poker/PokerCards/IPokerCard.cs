@@ -7,8 +7,10 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCards
 {
-    public interface IPokerCard : ICard
+    public interface IPokerCard
     {
+        string getSuit();
+        string getType();
         int getIntValue();
     }
 }

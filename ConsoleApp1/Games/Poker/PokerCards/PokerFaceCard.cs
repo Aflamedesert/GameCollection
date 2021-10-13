@@ -7,19 +7,36 @@ using GameCollection.SharedCode.CardGames.Card;
 
 namespace GameCollection.Games.Poker.PokerCards
 {
-    public class PokerFaceCard : FaceCard, IPokerCard
+    public class PokerFaceCard : IPokerCard
     {
+        string cardType;
+
+        string cardSuit;
+
         int cardValue;
 
-        public PokerFaceCard(string passedCardType, int passedCardValue, string passedSuit, string[] passedCardDisplay) : base(passedCardType, passedSuit, passedCardDisplay)
+        public PokerFaceCard(string passedCardType, string passedCardSuit, int passedCardValue)
         {
-            //runs FaceCard's constructor and...
+            cardType = passedCardType;
+
+            cardSuit = passedCardSuit;
+
             cardValue = passedCardValue;
         }
 
         public int getIntValue()
         {
             return cardValue;
+        }
+
+        public string getSuit()
+        {
+            return cardSuit;
+        }
+
+        public string getType()
+        {
+            return cardType;
         }
     }
 }
