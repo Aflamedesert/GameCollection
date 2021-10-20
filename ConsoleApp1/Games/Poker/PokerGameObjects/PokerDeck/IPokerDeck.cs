@@ -7,7 +7,7 @@ using GameCollection.Games.Poker.PokerCards;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerDeck
 {
-    interface IPokerDeck
+    public interface IPokerDeck
     {
         IPokerCard Draw();
         List<IPokerCard> Draw(int passedDrawNumber);

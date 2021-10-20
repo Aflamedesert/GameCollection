@@ -8,7 +8,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem
 {
     public interface IPokerBettingSystem<T>
     {
-        void Ante(List<T> passedPlayers);
         List<T> ExecuteBettingRound(List<T> passedPlayers);
     }
 }

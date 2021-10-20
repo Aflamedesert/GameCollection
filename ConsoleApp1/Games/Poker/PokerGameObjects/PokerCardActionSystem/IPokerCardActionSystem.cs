@@ -9,7 +9,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerCardActionSystem
 {
     public interface IPokerCardActionSystem<T>
     {
-        void DealStartingHand(List<T> passedPlayers);
         void ExecuteCardActionRound(List<T> passedPlayers);
     }
 }

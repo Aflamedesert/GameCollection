@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = GameCollection
-build_property.ProjectDir = c:\projects\game collection\gamecollection\consoleapp1\
+build_property.ProjectDir = C:\Projects\Game Collection\GameCollection\ConsoleApp1\

@@ -11,6 +11,8 @@ using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface;
 using GameCollection.Games.Poker.PokerGameObjects.PokerDisplay;
 using GameCollection.Games.Poker.PokerGameObjects.PokerStandardMessages;
 using GameCollection.Games.Poker.PokerGameObjects.PokerPot;
+using GameCollection.Games.Poker.PokerGameObjects.PokerAnteHandler;
+using GameCollection.Games.Poker.PokerGameObjects.PokerStartingHandHandler;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
 {
@@ -19,6 +21,10 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
         List<T> playersInGame;
 
         int numberOfRounds;
+
+        IAnteHandler<T> anteHandler;
+
+        IStartingHandHandler<T> startingHandHandler;
 
         IPokerBettingSystem<T> bettingSystem;
 
@@ -33,6 +39,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
         IPokerPot gamePot;
 
         public ClassicPokerGameCore(List<T> passedPlayerInterfaces, int passedNumberOfRounds,
+            IAnteHandler<T> passedAnteHandler,
+            IStartingHandHandler<T> passedStartingHandHandler,
             IPokerBettingSystem<T> passedBettingSystem, 
             IPokerCardActionSystem<T> passedCardActionSystem, 
             IPokerGameEvaluator<T> passedGameEvaluator, 
@@ -43,6 +51,10 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
             playersInGame = passedPlayerInterfaces;
 
             numberOfRounds = passedNumberOfRounds;
+
+            anteHandler = passedAnteHandler;
+
+            startingHandHandler = passedStartingHandHandler;
 
             bettingSystem = passedBettingSystem;
 
@@ -77,9 +89,9 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
 
         private void SetupGame(List<T> passedPlayers)
         {
-            bettingSystem.Ante(passedPlayers);
+            anteHandler.Ante(passedPlayers);
 
-            cardActionSystem.DealStartingHand(passedPlayers);
+            startingHandHandler.DealStartingHand(passedPlayers);
         }
 
         private List<T> PlayRound(List<T> passedPlayers, int currentRoundNumber)
