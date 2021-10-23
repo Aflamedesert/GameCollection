@@ -8,6 +8,6 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingRound.BetHandl
 {
     public interface IBetBehavior
     {
-        void Bet(int passedBatAmount);
+        void Bet(int passedBetAmount);
     }
 }

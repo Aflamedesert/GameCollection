@@ -28,11 +28,62 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface
             cardActionSelector = passedCardActionSelector;
         }
 
+        //methods linked to IGetPlayerNameBehavior
+        public string GetPlayerName()
+        {
+            return playerState.GetPlayerName();
+        }
+
+        //methods linked to IGetCardsInHandBehavior
+        public List<IPokerCard> GetCardsInHand()
+        {
+            return playerState.GetPlayerCards();
+        }
+
+        //methods linked to IBettingRoundStateBehavior
+        public int GetAmountBet()
+        {
+            return playerState.GetCurrentAmountBet();
+        }
+
+        public void AddToAmountBet(int passedAmountToBeAdded)
+        {
+            playerState.AddToAmountBet(passedAmountToBeAdded);
+        }
+
+        public void Clear()
+        {
+            playerState.ClearState();
+        }
+
+        //methods linked to IChipHandlingBehavior
+        public int GetNumberOfChips()
+        {
+            return playerState.GetPlayerChipAmount();
+        }
+
         public void AddChipsToPlayer(int passedAmount)
         {
             playerState.AddChips(passedAmount);
         }
 
+        public void RemoveChipsFromPlayer(int passedAmount)
+        {
+            playerState.RemoveChips(passedAmount);
+        }
+
+        //methods linked to IFoldingBehavior
+        public void Fold()
+        {
+            playerState.Fold();
+        }
+
+        public bool HasPlayerFolded()
+        {
+            return playerState.HasPlayerFolded();
+        }
+
+        //methods linked to IAddToHandBehavior
         public void AddToHand(IPokerCard passedCard)
         {
             playerState.AddToHand(passedCard);
@@ -43,56 +94,31 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface
             playerState.AddToHand(passedCards);
         }
 
+        //methods linked to IEmptyHandBehavior
         public List<IPokerCard> EmptyHand()
         {
             return playerState.EmptyHand();
         }
 
-        public void Fold()
-        {
-            playerState.Fold();
-        }
-
-        public List<IPokerCard> GetCardsInHand()
-        {
-            return playerState.GetPlayerCards();
-        }
-
-        public int GetNumberOfChips()
-        {
-            return playerState.GetPlayerChipAmount();
-        }
-
-        public string GetPlayerName()
-        {
-            return playerState.GetPlayerName();
-        }
-
-        public bool HasPlayerFolded()
-        {
-            return playerState.HasPlayerFolded();
-        }
-
-        public void InitiateCallableBet(int passedMinimumBetAmount)
-        {
-            betSelector.InitializeCallableBetSelection(passedMinimumBetAmount);
-        }
-
-        public void InitiateCardAction()
-        {
-            cardActionSelector.InitializeCardActionSelection(GetCardsInHand());
-        }
-
+        //methods linked to ICheckableBettingBehavior
         public void InitiateCheckableBet()
         {
             betSelector.InitializeCheckableBetSelection();
         }
 
-        public void RemoveChipsFromPlayer(int passedAmount)
+        //methods linked to ICallableBettingBehavior
+        public void InitiateCallableBet(int passedMinimumBetAmount)
         {
-            playerState.RemoveChips(passedAmount);
+            betSelector.InitializeCallableBetSelection(passedMinimumBetAmount);
         }
 
+        //methods linked to ICardActionBehavior
+        public void InitiateCardAction()
+        {
+            cardActionSelector.InitializeCardActionSelection(GetCardsInHand());
+        }
+
+        //methods linked to IRemoveFromHandBehavior
         public IPokerCard RemoveFromHand(IPokerCard passedCard)
         {
             return playerState.RemoveFromHand(passedCard);

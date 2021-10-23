@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface;
 using GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem.BettingLoopIncrementors;
 using GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem.BettingLoopIncrementors.BettingLoopActions;
+using GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem.MinimumBetCalculation;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem
 {
@@ -15,24 +16,57 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem
     {
         List<T> playerInterfaces;
 
+
+
         IncrementorLoopCreationMethod<T> loopCreator;
+
+        IMinimumBetCalculator<T> minimumBetCalculator;
+
+        IBettingLoopAction<T> checkableBettingAction;
+
+        IBettingLoopAction<T> callableBettingAction;
+
+        IBettingLoopAction<T> startingAction;
+
+
 
         ILoopIncrementor<T> currentIncrementorLoop;
 
         IBettingLoopAction<T> currentBettingLoopAction;
 
-        public FiveCardDrawBettingSystem(IncrementorLoopCreationMethod<T> passedIncrementorLoopCreator)
+        public FiveCardDrawBettingSystem(IncrementorLoopCreationMethod<T> passedIncrementorLoopCreator, 
+            IMinimumBetCalculator<T> passedMinimumBetCalculator, 
+            IBettingLoopAction<T> passedCheckableBettingAction,
+            IBettingLoopAction<T> passedCallableBettingAction,
+            IBettingLoopAction<T> passedStartingBettingAction = null)
         {
             loopCreator = passedIncrementorLoopCreator;
+
+            minimumBetCalculator = passedMinimumBetCalculator;
+
+            checkableBettingAction = passedCheckableBettingAction;
+
+            callableBettingAction = passedCallableBettingAction;
+
+            startingAction = passedStartingBettingAction;
         }
 
         public List<T> ExecuteBettingRound(List<T> passedPlayers)
         {
             playerInterfaces = new List<T>(passedPlayers);
 
+            minimumBetCalculator.SetPlayerInterfaces(playerInterfaces);
+
             currentIncrementorLoop = loopCreator(playerInterfaces);
 
-            currentBettingLoopAction = CreateCheckableBettingAction();
+            if(startingAction != null)
+            {
+                currentBettingLoopAction = startingAction;
+            }
+            else
+            {
+                currentBettingLoopAction = checkableBettingAction;
+            }
 
             bool loopHasFinished = false;
 
@@ -62,6 +96,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem
 
             List<T> playersThatHaveNotFolded = RemovedFoldedPlayers(playerInterfaces);
 
+            minimumBetCalculator.ClearAll();
+
             return playersThatHaveNotFolded;
         }
 
@@ -82,30 +118,20 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem
 
         public void ChangeToCheckableLoop()
         {
-            currentBettingLoopAction = CreateCheckableBettingAction();
+            currentBettingLoopAction = checkableBettingAction;
 
             int currentLoopIncrementorIndex = currentIncrementorLoop.GetCurrentIndex();
 
             currentIncrementorLoop = loopCreator(playerInterfaces, currentLoopIncrementorIndex);
         }
 
-        public void ChangeToCallableLoop(int passedMinimumBet)
+        public void ChangeToCallableLoop()
         {
-            currentBettingLoopAction = CreateCallableBettingAction(passedMinimumBet);
+            currentBettingLoopAction = callableBettingAction;
 
             int currentLoopIncrementorIndex = currentIncrementorLoop.GetCurrentIndex();
 
             currentIncrementorLoop = loopCreator(playerInterfaces, currentLoopIncrementorIndex);
-        }
-
-        private CheckableBettingAction<T> CreateCheckableBettingAction()
-        {
-            return new CheckableBettingAction<T>();
-        }
-
-        private CallableBettingAction<T> CreateCallableBettingAction(int passedMinimumBetSize)
-        {
-            return new CallableBettingAction<T>(passedMinimumBetSize);
         }
     }
 }

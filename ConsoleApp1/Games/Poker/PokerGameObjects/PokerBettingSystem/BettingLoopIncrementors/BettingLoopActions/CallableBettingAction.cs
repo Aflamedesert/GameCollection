@@ -4,21 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface;
+using GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem.MinimumBetCalculation;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem.BettingLoopIncrementors.BettingLoopActions
 {
-    public class CallableBettingAction<T> : IBettingLoopAction<T> where T : ICallableBettingBehavior
+    public class CallableBettingAction<T> : IBettingLoopAction<T> where T : ICallableBettingBehavior, IBettingRoundStateBehavior
     {
-        int minimumBetSize;
+        IMinimumBetCalculator<T> minimumBeCalculator;
 
-        public CallableBettingAction(int passedMinimumBetSize)
+        public CallableBettingAction(IMinimumBetCalculator<T> passedBettingStateHandler)
         {
-            minimumBetSize = passedMinimumBetSize;
+            minimumBeCalculator = passedBettingStateHandler;
         }
 
         public void Execute(T passedObjectToBeActedOn)
         {
-            passedObjectToBeActedOn.InitiateCallableBet(minimumBetSize);
+            int minimumBetAmount = minimumBeCalculator.GetMinimumBet();
+
+            int currentAmountBet = passedObjectToBeActedOn.GetAmountBet();
+
+            if(minimumBetAmount <= currentAmountBet)
+            {
+                throw new InvalidOperationException($"Something has gone wrong, minimumBetAmount : {minimumBetAmount} must be greater than currentAmountBet : {currentAmountBet}");
+            }
+
+            int callAmount = minimumBetAmount - currentAmountBet;
+
+            passedObjectToBeActedOn.InitiateCallableBet(callAmount);
         }
     }
 }

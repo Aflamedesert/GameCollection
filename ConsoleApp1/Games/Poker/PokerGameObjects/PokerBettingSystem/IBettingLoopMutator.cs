@@ -2,7 +2,7 @@
 {
     public interface IBettingLoopMutator
     {
-        void ChangeToCallableLoop(int passedMinimumBet);
+        void ChangeToCallableLoop();
         void ChangeToCheckableLoop();
     }
 }

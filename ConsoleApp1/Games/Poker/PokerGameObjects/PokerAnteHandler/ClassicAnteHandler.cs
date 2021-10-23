@@ -8,7 +8,7 @@ using GameCollection.Games.Poker.PokerGameObjects.PokerPot;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerAnteHandler
 {
-    public class ClassicAnteHandler<T> : IAnteHandler<T> where T : IChipHandlingBehavior
+    public class ClassicAnteHandler<T> : IAnteHandler<T> where T : IChipHandlingBehavior, IBettingRoundStateBehavior
     {
         IPokerPot pot;
 
@@ -26,6 +26,8 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerAnteHandler
             foreach (T player in passedPlayerInterfaces)
             {
                 player.RemoveChipsFromPlayer(anteAmount);
+
+                player.AddToAmountBet(anteAmount);
 
                 pot.AddToPot(anteAmount);
             }
