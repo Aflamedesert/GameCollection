@@ -9,10 +9,10 @@ using GameCollection.Games.Poker.PokerGameObjects.PokerCardActionSystem;
 using GameCollection.Games.Poker.PokerGameEvaluation;
 using GameCollection.Games.Poker.PokerGameObjects.PokerPlayerInterface;
 using GameCollection.Games.Poker.PokerGameObjects.PokerDisplay;
-using GameCollection.Games.Poker.PokerGameObjects.PokerStandardMessages;
 using GameCollection.Games.Poker.PokerGameObjects.PokerPot;
 using GameCollection.Games.Poker.PokerGameObjects.PokerAnteHandler;
 using GameCollection.Games.Poker.PokerGameObjects.PokerStartingHandHandler;
+using GameCollection.Games.Poker.PokerGameObjects.PokerNotificationSystem;
 
 namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
 {
@@ -34,7 +34,7 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
 
         IPokerDisplay<T> gameDisplay;
 
-        IPokerStandardMessages standardMessages;
+        IPokerNotificationSystem standardMessages;
 
         IPokerPot gamePot;
 
@@ -45,7 +45,7 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerGameCore
             IPokerCardActionSystem<T> passedCardActionSystem, 
             IPokerGameEvaluator<T> passedGameEvaluator, 
             IPokerDisplay<T> passedDisplay, 
-            IPokerStandardMessages passedStandardMessages, 
+            IPokerNotificationSystem passedStandardMessages, 
             IPokerPot passedPot)
         {
             playersInGame = passedPlayerInterfaces;

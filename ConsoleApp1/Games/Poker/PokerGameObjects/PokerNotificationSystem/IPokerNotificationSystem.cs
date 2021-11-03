@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameCollection.Games.Poker.PokerGameObjects.PokerStandardMessages
+namespace GameCollection.Games.Poker.PokerGameObjects.PokerNotificationSystem
 {
-    public interface IPokerStandardMessages
+    public interface IPokerNotificationSystem
     {
         void FoldMessage(string passedPlayerName);
         void AddMessage(string passedPlayerName);

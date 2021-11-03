@@ -6,11 +6,13 @@
     "\\ConsoleApp1\\Games\\Poker",
     "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects",
     "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\PokerBettingSystem",
+    "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\PokerBettingSystem\\BettingLoopIncrementors",
+    "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\PokerBettingSystem\\BettingLoopIncrementors\\BettingLoopActions",
     "\\GameCollection.Tests",
     "\\GameCollection.Tests\\PokerArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests",
     "\\GameCollection.Tests\\PokerArchetypeTests\\ArchetypeTests\\HighCardTests"
   ],
-  "SelectedNode": "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\PokerBettingSystem\\FiveCardDrawBettingSystem.cs",
+  "SelectedNode": "\\ConsoleApp1\\Games\\Poker\\PokerGameObjects\\PokerBettingSystem\\BettingLoopIncrementors\\BettingLoopActions\\CallableBettingAction.cs",
   "PreviewInSolutionExplorer": false
 }

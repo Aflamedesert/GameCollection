@@ -17,6 +17,10 @@ namespace GameCollection.Games.Poker.PokerGameObjects.PokerBettingSystem.Minimum
             {
                 players = new List<T>();
             }
+            else
+            {
+                players = passedPlayerInterfaces;
+            }
         }
 
         public void SetPlayerInterfaces(List<T> passedPlayerInterfaces)
